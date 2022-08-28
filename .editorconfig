@@ -1,0 +1,26 @@
+# EditorConfig is awesome: https://EditorConfig.org
+# 全部的配置项：https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+#文件编码格式
+charset = utf-8
+#行尾文件格式：lf换行,crlf回车换行，cr回车
+end_of_line = lf
+#缩进方式tab,space
+indent_style = tab
+#缩进size个style
+indent_size = 2
+#一个tab占用2列
+tab_width = 2
+#表示文件是否应以换行结束
+insert_final_newline = true
+#是否从行尾删除空白
+trim_trailing_whitespace = true
+
+[*.md]
+insert_final_newline = false
+trim_trailing_whitespace = false
