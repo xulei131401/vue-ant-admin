@@ -9,9 +9,10 @@
 	</div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XLogo'
-	}
+	export default defineComponent({
+		name: 'XLogo',
+		inheritAttrs: false
+	})
 </script>
 
 <script setup lang="ts">

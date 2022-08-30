@@ -5,9 +5,10 @@
 	</div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XFoldMenu'
-	}
+	export default defineComponent({
+		name: 'XFoldMenu',
+		inheritAttrs: false
+	})
 </script>
 <script setup lang="ts">
 	import {emitter} from '@/business/export'

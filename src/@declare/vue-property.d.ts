@@ -1,10 +1,4 @@
-import 'vue-router'
-declare module 'vue-router' {
-	interface RouteMeta {
-		title: string
-	}
-}
-
+export { }
 declare module '@vue/runtime-core' {
 	interface ComponentCustomProperties {
 		$antIcons: any

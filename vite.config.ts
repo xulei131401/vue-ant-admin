@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from "unplugin-auto-import/vite"
-import { createStyleImportPlugin, AndDesignVueResolve } from 'vite-plugin-style-import'
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import * as path from 'path'
 
 // https://vitejs.dev/config/
@@ -10,25 +11,17 @@ export default defineConfig({
 		vue(),
 		AutoImport({
 			imports: ["vue", "vue-router", "pinia"], // 自动导入vue和vue-router相关函数
-			dts: "src/@types/auto-import.d.ts" // 生成 `auto-import.d.ts` 全局声明
+			dts: "src/@declare/auto-import.d.ts" // 生成 `auto-import.d.ts` 全局声明
 		}),
-		createStyleImportPlugin({
-			resolves: [
-				AndDesignVueResolve(),
+		Components({
+			resolvers: [
+				AntDesignVueResolver(),
 			],
-			libs: [
-				{
-					libraryName: 'ant-design-vue',
-					esModule: true,
-					resolveStyle: (name) => {
-						return `ant-design-vue/es/${name}/style/index`
-					},
-				}
-			],
-		}),
+		})
 	],
 	server: {
 		open: true,
+		port: 9527,
 		// proxy: {
 		//     '/': {
 		//      target: "http://localhost/public/index.php/",
@@ -49,11 +42,6 @@ export default defineConfig({
 	css: {
 		preprocessorOptions: {
 			less: {
-				// modifyVars: { // 更改主题在这里
-				// 	'primary-color': '#52c41a',
-				// 	'link-color': '#1DA57A',
-				// 	'border-radius-base': '2px'
-				// },
 				javascriptEnabled: true,
 			},
 			scss: {

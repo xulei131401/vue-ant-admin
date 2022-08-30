@@ -29,9 +29,9 @@
 </script>
 <script setup lang="ts">
 	import type {TabPane, RouteLocationNormalized} from '@/business/export'
-	import {emitter, useGlobalUse} from '@/business/export'
+	import {emitter, useInjectHelper} from '@/business/export'
 
-	const {helper} = useGlobalUse()
+	const helper = useInjectHelper()
 	const router = useRouter()
 	const panes = ref<TabPane[]>([])
 	const panesMap: Record<string, TabPane> = {}

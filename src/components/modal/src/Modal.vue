@@ -4,9 +4,10 @@
 	</div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XModal'
-	}
+	export default defineComponent({
+		name: 'XModal',
+		inheritAttrs: false
+	})
 </script>
 
 <script setup lang="ts">

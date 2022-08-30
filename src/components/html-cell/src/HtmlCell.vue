@@ -2,9 +2,10 @@
 	<div v-html="text"></div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XHtmlCell'
-	}
+	export default defineComponent({
+		name: 'XHtmlCell',
+		inheritAttrs: false
+	})
 </script>
 
 <script setup lang="ts">

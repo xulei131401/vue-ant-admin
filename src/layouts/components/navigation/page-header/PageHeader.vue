@@ -9,7 +9,7 @@
 	}
 </script>
 <script setup lang="ts">
-	import {getMenuInfoByRouteName, useGlobalUse} from '@/business/export'
+	import {getMenuInfoByRouteName} from '@/business/export'
 	import type {RouteRecordName} from '@/business/export'
 	import {getRouteRecordByName} from '@/router/route'
 	import XPageHeaderBreadcrumb from '@/layouts/components/navigation/page-header/PageHeaderBreadcrumb.vue'

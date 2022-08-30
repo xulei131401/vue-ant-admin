@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div>报名学生</div>
-		<x-table v-bind="props" />
+		<XSS />
+		<x-table v-bind="tableProps" />
 		<x-modal ref="modal" />
-		<x-modal ref="modal1" />
 	</div>
 </template>
 
@@ -13,9 +13,11 @@
 	}
 </script>
 
-<script setup lang="ts">
-	import {useTableMockData} from '@/composables/useTableMockData'
-	const {modal, props} = useTableMockData()
+<script setup lang="ts" name="StudentSignUp">
+	// import XTT from './TT.vue'
+	import XSS from './XSS.vue'
+	import {useMockTable} from '@/views/composables/useTableMockData'
+	const {modal, tableProps} = useMockTable()
 </script>
 
 <style scoped lang="scss"></style>

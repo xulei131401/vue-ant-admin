@@ -31,16 +31,17 @@
 	</div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XSecondLevelMenu'
-	}
+	export default defineComponent({
+		name: 'XSecondLevelMenu',
+		inheritAttrs: false
+	})
 </script>
 
 <script setup lang="ts">
-	import {emitter, useMainStore, Menu, getMenuInfoByRouteName, useGlobalUse} from '@/business/export'
+	import {emitter, useMainStore, Menu, getMenuInfoByRouteName, useInjectHelper} from '@/business/export'
 	import type {RouteRecordName} from '@/business/export'
 
-	const {helper} = useGlobalUse()
+	const helper = useInjectHelper()
 	const route = useRoute()
 	const router = useRouter()
 	const mainStore = useMainStore()
@@ -111,7 +112,7 @@
 		}
 
 		const {currentMenu, parentMenu} = getMenuInfoByRouteName(_routeName)
-		helper.log('routeName:', currentMenu, parentMenu)
+		// helper.log('routeName:', currentMenu, parentMenu)
 
 		if (parentMenu) {
 			menuState.openKeys = [parentMenu.routeName]

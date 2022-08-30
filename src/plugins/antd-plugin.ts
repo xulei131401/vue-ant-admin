@@ -1,5 +1,5 @@
 import { App, Plugin, Component } from '@vue/runtime-dom';
-import { Button, Layout, Menu, Form, Input, message, Dropdown, Tabs, Avatar, Spin, Result, PageHeader, Drawer, Tooltip, Tag, Modal } from 'ant-design-vue';
+import { Button, Layout, Menu, Form, Input, message, Dropdown, Tabs, Avatar, Spin, Result, PageHeader, Drawer, Tooltip, Tag, Modal, Table } from 'ant-design-vue';
 import * as antIcons from "@ant-design/icons-vue";
 
 const normalComponents: Plugin[] = [
@@ -17,7 +17,8 @@ const normalComponents: Plugin[] = [
 	Drawer,
 	Tooltip,
 	Tag,
-	Modal
+	Modal,
+	Table
 ];
 
 const plugins: Plugin[] = [...normalComponents];

@@ -4,9 +4,10 @@
 	</div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XLink'
-	}
+	export default defineComponent({
+		name: 'XLink',
+		inheritAttrs: false
+	})
 </script>
 
 <script setup lang="ts">

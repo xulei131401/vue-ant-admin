@@ -75,7 +75,7 @@ const homePageRoute: RouteRecordRaw = {
 const indexRoute: RouteRecordRaw = {
 	name: "index",
 	path: '/',
-	component: BasicLayoutComponent,
+	// component: BasicLayoutComponent,
 	redirect: { name: 'homepage' },
 	meta: { title: "根路径" },
 	children: [
