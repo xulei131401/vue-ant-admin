@@ -1,8 +1,14 @@
 <template>
-	<router-view />
+	<AConfigProvider>
+		<XAppProvider>
+			<RouterView />
+		</XAppProvider>
+	</AConfigProvider>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+	import {XAppProvider} from '@/components/application'
+</script>
 
 <style>
 	#app {

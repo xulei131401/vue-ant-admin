@@ -1,0 +1,10 @@
+$prefix-cls: '#{$namespace}-default-layout';
+
+.#{$prefix-cls} {
+	width: 100%;
+	min-height: 100%;
+
+	> .ant-layout {
+		min-height: 100%;
+	}
+}

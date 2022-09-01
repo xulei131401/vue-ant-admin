@@ -1,47 +1,19 @@
-import { createRouter, createWebHashHistory, createWebHistory, RouteLocationNormalized } from 'vue-router';
-import routes from "./router";
-import { isLogin } from '@/business/utils/localStorage'
+import type { App } from 'vue';
+import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { basicRoutes } from "@/router/routes";
+import { setupRouterGuard } from '@/router/guard';
 
-const router = createRouter({
+export const router = createRouter({
 	// history: createWebHashHistory(),  // hash路由模式
 	history: createWebHistory(),  // history路由模式
-	routes: routes
+	routes: basicRoutes as unknown as RouteRecordRaw[],
+	// 是否应该禁止尾部斜杠。默认为假
+	strict: true,
+	scrollBehavior: () => ({ left: 0, top: 0 }),
 });
 
-router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized) => {
-	// console.log("to:", to)
-	// console.log("from:", from)
-
-	// 1.没登录重定向到登录页
-	// 2.重定向到登录页的时候，没登录直接进入，登录了就重定向到index
-	// 1.应该判断是否登录，如果登录了，则return true,否则进入login
-	const _isLogin = isLogin()
-	// 已经登录
-	if (_isLogin) {
-		// 登录了以后访问登录页面，直接重定向到首页
-		if (to.name == 'login') {
-			return { name: 'index' }
-		}
-
-		return true
-	}
-
-	// 没登录，但是要进入登录页面
-	if (to.name == 'login') {
-		return true
-	}
-
-	// 没登录,进入的是其他页面
-	return { name: "login" }
-})
-
-router.afterEach((to: RouteLocationNormalized, from: RouteLocationNormalized) => {
-	// console.log("afterEach-to:", to)
-	// console.log("afterEach-from:", from)
-})
-
-router.beforeResolve(async (to: RouteLocationNormalized) => {
-
-})
-
-export default router;
+// 注册路由
+export function setupRouter(app: App) {
+	app.use(router);
+	setupRouterGuard(router)
+}

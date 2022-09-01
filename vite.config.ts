@@ -4,14 +4,21 @@ import AutoImport from "unplugin-auto-import/vite"
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import * as path from 'path'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+
+function pathResolve(dir: string) {
+	//console.log(path.resolve(process.cwd(), '.', dir))
+	return path.resolve(process.cwd(), '.', dir);
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		vue(),
+		vueJsx(),
 		AutoImport({
 			imports: ["vue", "vue-router", "pinia"], // 自动导入vue和vue-router相关函数
-			dts: "src/@declare/auto-import.d.ts" // 生成 `auto-import.d.ts` 全局声明
+			dts: "types/auto-import.d.ts" // 生成 `auto-import.d.ts` 全局声明
 		}),
 		Components({
 			resolvers: [
@@ -32,9 +39,17 @@ export default defineConfig({
 	},
 	resolve: {
 		// 配置路径别名
-		alias: {
-			'@': path.resolve(__dirname, './src'),
-		},
+		alias: [
+			{
+				find: '@',
+				replacement: `${pathResolve('src')}/`,
+			},
+			// /#/xxxx => types/xxxx
+			{
+				find: '#',
+				replacement: `${pathResolve('types')}/`,
+			}
+		]
 	},
 	//   optimizeDeps: {
 	//     include: ['@surely-vue/table', 'vue'],
@@ -45,7 +60,7 @@ export default defineConfig({
 				javascriptEnabled: true,
 			},
 			scss: {
-				additionalData: "",
+				additionalData: '@import "@/style/global/index.scss";'
 			}
 		},
 	},

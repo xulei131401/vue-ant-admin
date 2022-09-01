@@ -16,7 +16,7 @@
 <script setup lang="ts">
 	import XSidebarLayout from '@/layouts/components/sidebar-layout/SidebarLayout.vue'
 	import XLoading from '@/layouts/components/loading/Loading.vue'
-	import {useMainStore} from '@/store/main'
+	import {useMainStore} from '@/store/modules/app'
 	import type {Component} from 'vue'
 
 	let layoutComponent = shallowRef<Component>(XSidebarLayout)

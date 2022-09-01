@@ -1,0 +1,21 @@
+$prefix-cls: '#{$namespace}-layout-header';
+
+.#{$prefix-cls} {
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: $header-height;
+	line-height: $header-height;
+	color: $white;
+	background-color: $white;
+	margin-left: -1px;
+
+	&--fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 7;
+		width: 100%;
+	}
+}

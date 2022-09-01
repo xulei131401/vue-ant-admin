@@ -13,20 +13,14 @@ export { default as emitter } from '@/business/utils/emitter'
 // 公共类型导出
 export * from '@/business/menu/tabPane'
 
-// provide导出
-export * from '@/plugins/provide'
-
 // 全局工具函数
 const toolx = {}
 export { toolx }
 
 // store的引入
-export * from '@/store/main'
+export * from '@/store/modules/app'
 
 // menu
 export * from '@/business/menu/menu'
 
 export * from '@/business/menu/secondLevelMenu'
-
-// 组合式函数导出
-export * from '@/composables/useGlobal'

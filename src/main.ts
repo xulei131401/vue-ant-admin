@@ -1,13 +1,17 @@
-import { createApp, Component } from 'vue'
-import '@/styles/index.scss'
-import globalPlugin from './plugins'
-import router from "./router"
+import { createApp } from 'vue'
+import globalPlugin from '@/plugins'
+import { setupRouter } from "@/router"
+import { setupStore } from '@/store';
 import App from './App.vue'
-const app = createApp(App)
-const pinia = createPinia()
-import 'ant-design-vue/dist/antd.css'
-app.use(router)
-app.use(pinia)
-app.use(globalPlugin)
 
-app.mount('#app')
+import 'ant-design-vue/dist/antd.css'
+
+async function bootstrap() {
+	const app = createApp(App)
+	app.use(globalPlugin)
+	setupStore(app)
+	setupRouter(app)
+	app.mount('#app')
+}
+
+bootstrap()
