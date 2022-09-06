@@ -1,17 +1,17 @@
 <template>
-	<div>
-		<XPageLayout />
-	</div>
+	<ContentFillBlank />
+	<PageLayout />
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'XLayoutContent',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'LayoutContent',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts">
-	import XPageLayout from '@/layouts/page/index.vue'
+import PageLayout from '@/layouts/page/index.vue'
+import ContentFillBlank from './ContentFillBlank.vue'
 </script>
 
 <style scoped lang="scss"></style>

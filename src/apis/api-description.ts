@@ -1,7 +1,7 @@
-import { ApiInfo } from "@/business/request/type"
+import { ApiInfo } from '@/business/request/type'
 import { aliasToMockUrl } from '@/business/utils/mix'
 
-export const ACTION_LOGIN: string = '/login'
+export const ACTION_LOGIN = '/login'
 export const API_INFO_LOGIN: ApiInfo = {
 	desc: '登录接口',
 	url: ACTION_LOGIN,
@@ -9,7 +9,7 @@ export const API_INFO_LOGIN: ApiInfo = {
 	mockUrl: aliasToMockUrl('@/mock/login.json')
 }
 
-export const ACTION_MY_INFO: string = '/my/info'
+export const ACTION_MY_INFO = '/my/info'
 export const API_INFO_MY_INFO: ApiInfo = {
 	desc: '登录用户信息',
 	url: ACTION_MY_INFO,
@@ -17,7 +17,7 @@ export const API_INFO_MY_INFO: ApiInfo = {
 	mockUrl: aliasToMockUrl('@/mock/my-info.json')
 }
 
-export const ACTION_MY_MENU: string = '/my/menu'
+export const ACTION_MY_MENU = '/my/menu'
 export const API_INFO_MY_MENU: ApiInfo = {
 	desc: '菜单',
 	url: ACTION_MY_MENU,

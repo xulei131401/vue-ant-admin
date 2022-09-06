@@ -54,7 +54,7 @@ export function useMockTable() {
 			format: ({ value, record, index }) => {
 				return `<div style="color: red">${value}</div>`
 			},
-			align: "center",
+			align: 'center'
 			// fixed: true
 		},
 
@@ -70,39 +70,39 @@ export function useMockTable() {
 			width: 180,
 			actions: [
 				{
-					type: "click",
-					text: "查看1",
+					type: 'click',
+					text: '查看1',
 					url: '/sss/aaa',
 					click: ({ record }) => {
 						openModal()
-						console.log("click:", record)
+						console.log('click:', record)
 					}
 				},
 				{
-					type: "click",
-					text: "查看2",
+					type: 'click',
+					text: '查看2',
 					url: '/sss/aaa',
 					click: ({ record }) => {
 						openModal()
-						console.log("click:", record)
+						console.log('click:', record)
 					}
 				},
 				{
-					type: "click",
-					text: "查看3",
+					type: 'click',
+					text: '查看3',
 					url: '/sss/aaa',
 					click: ({ record }) => {
 						openModal()
-						console.log("click:", record)
+						console.log('click:', record)
 					}
 				}
-			],
+			]
 		},
 		{
 			title: '开始时间',
 			key: 'start_at1',
 			width: 135
-		},
+		}
 	]
 
 	const tableProps = reactive({
@@ -110,8 +110,8 @@ export function useMockTable() {
 			url: '/student/search',
 			p: 1,
 			pn: 20,
-			orderby: "start_at",
-			sort: "asc",
+			orderby: 'start_at',
+			sort: 'asc',
 			autoSearch: true
 		},
 		columns: columns,

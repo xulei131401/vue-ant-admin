@@ -1,0 +1,5 @@
+$prefix-cls: '#{$namespace}-layout-content-fill-blank';
+
+.#{$prefix-cls} {
+	margin-top: $header-height;
+}

@@ -1,5 +1,5 @@
-import { App } from '@vue/runtime-dom';
-import VueAdmin from '@/components';
+import { App } from 'vue'
+import VueAdmin from '@/components'
 
 export default {
 	install(app: App) {

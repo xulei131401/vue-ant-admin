@@ -16,7 +16,6 @@
 // 	},
 // ]
 
-
 // import { RouteRecordRaw } from "vue-router";
 
 // const TestComponent = () => import("@/views/Test/Test.vue")
@@ -25,7 +24,6 @@
 // const BasicLayoutComponent = () => import('@/layouts/BasicLayout.vue')
 // const NotFoundComponent = () => import('@/views/NotFound.vue')
 // const LoginComponent = () => import('@/views/Login.vue')
-
 
 // //业务组件
 // const StudentSignUpComponent = () => import('@/views/Student/StudentSignUp.vue')
@@ -48,7 +46,6 @@
 // 		meta: { title: "体验学生" }
 // 	},
 // ];
-
 
 // const customRoute: Array<RouteRecordRaw> = [
 // 	{

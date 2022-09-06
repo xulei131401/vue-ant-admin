@@ -1,15 +1,15 @@
 <template>
-	<XSider />
+	<Sider />
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'XLayoutSider',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'LayoutSider',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts">
-	import XSider from './Sider.vue'
+import Sider from './Sider.vue'
 </script>
 
 <style scoped lang="scss"></style>

@@ -1,6 +1,17 @@
 <template>
-	<div>工作台--analysis</div>
+	<div>
+		<!-- <Modal1 /> -->
+	</div>
 </template>
-<script setup lang="ts"></script>
+<script lang="ts">
+export default defineComponent({
+	name: 'Analysis',
+	inheritAttrs: false
+})
+</script>
+
+<script setup lang="ts">
+import Modal1 from './Modal1.vue'
+</script>
 
 <style scoped lang="scss"></style>

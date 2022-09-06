@@ -2,15 +2,15 @@
 	<slot></slot>
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'XAppProvider',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'AppProvider',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts">
-	import {createDefaultAppProviderContext} from './useAppContext'
-	createDefaultAppProviderContext()
+import { createDefaultAppProviderContext } from './useAppContext'
+createDefaultAppProviderContext()
 </script>
 
 <style scoped lang="scss"></style>

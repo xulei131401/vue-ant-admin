@@ -2,10 +2,10 @@
 	<div></div>
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'XHeaderCell',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'XHeaderCell',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts"></script>

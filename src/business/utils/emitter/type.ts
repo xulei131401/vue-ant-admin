@@ -5,6 +5,6 @@ type Events = {
 	event_fold_sider: boolean
 	event_click_menu_item: TabPane
 	event_click_tab_navigation: TabPane
-};
+}
 
 export type { Events }

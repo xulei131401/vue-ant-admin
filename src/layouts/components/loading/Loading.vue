@@ -4,9 +4,9 @@
 	</div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XLoading'
-	}
+export default {
+	name: 'XLoading'
+}
 </script>
 
 <script setup lang="ts"></script>

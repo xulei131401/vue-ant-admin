@@ -3,18 +3,18 @@
 	<HeaderTrigger v-else :theme="theme" />
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'XLayoutTrigger',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'Trigger',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts">
-	import HeaderTrigger from './HeaderTrigger.vue'
-	import SiderTrigger from './SiderTrigger.vue'
+import HeaderTrigger from './HeaderTrigger.vue'
+import SiderTrigger from './SiderTrigger.vue'
 
-	const sider = true
-	const theme = false
+const sider = true
+const theme = false
 </script>
 
 <style scoped lang="scss"></style>

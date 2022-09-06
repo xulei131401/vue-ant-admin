@@ -2,15 +2,15 @@ class Action {
 	/**
 	 * 唯一标识
 	 */
-	public identify: string = ""
+	public identify = ''
 	/**
 	 * 什么操作
 	 */
-	public text: string = ""
+	public text = ''
 	/**
 	 * 接口url
 	 */
-	public url: string = ""
+	public url = ''
 }
 
-export { }
+export {}

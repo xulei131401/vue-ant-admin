@@ -2,7 +2,7 @@
  * 统一管理项目的import语句，主要是用在业务层，框架代码该怎么用还怎么用
  */
 
-console.info("-------加载公共模块-------")
+console.info('-------加载公共模块-------')
 
 // vue-router
 export * from 'vue-router'

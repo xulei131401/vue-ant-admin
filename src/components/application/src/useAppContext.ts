@@ -7,23 +7,19 @@ import { prefixCls as DefaultPrefixCls } from '@/configs/settings/designSetting'
 
 interface AppProviderContextProps {
 	prefixCls: string // 样式前缀
-	log: TLog;
+	log: TLog
 }
 
-const key: InjectionKey<AppProviderContextProps> = Symbol();
+const key: InjectionKey<AppProviderContextProps> = Symbol()
 
 export function createDefaultAppProviderContext() {
 	createAppProviderContext({ prefixCls: DefaultPrefixCls, log: log })
 }
 
 export function createAppProviderContext(context: AppProviderContextProps) {
-	return createContext<AppProviderContextProps>(context, key);
+	return createContext<AppProviderContextProps>(context, key)
 }
 
 export function useAppProviderContext() {
-	return useContext<AppProviderContextProps>(key);
+	return useContext<AppProviderContextProps>(key)
 }
-
-
-
-

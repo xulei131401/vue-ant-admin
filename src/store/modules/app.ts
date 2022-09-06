@@ -1,14 +1,14 @@
-import { defineStore } from "pinia";
-import { store } from '@/store';
+import { defineStore } from 'pinia'
+import { store } from '@/store'
 import { myMenuAction } from '@/apis'
 import { Menu } from '@/business/menu/menu'
 
-export const useAppStore = defineStore("app", () => {
+export const useAppStore = defineStore('app', () => {
 	type StoreState = {
 		menuList: Array<Menu>
 	}
 
-	let storeState = reactive<StoreState>({
+	const storeState = reactive<StoreState>({
 		menuList: []
 	})
 
@@ -22,9 +22,9 @@ export const useAppStore = defineStore("app", () => {
 		menuList,
 		loadMy
 	}
-});
+})
 
 // Need to be used outside the setup
 export function useAppStoreReturn() {
-	return useAppStore(store);
+	return useAppStore(store)
 }

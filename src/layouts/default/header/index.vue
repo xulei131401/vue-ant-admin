@@ -1,32 +1,32 @@
 <template>
 	<ALayoutHeader :class="getHeaderClass">
-		<XHeaderLeft />
-		<XHeaderCenter />
-		<XHeaderRight />
+		<HeaderLeft />
+		<HeaderCenter />
+		<HeaderRight />
 	</ALayoutHeader>
 </template>
 
 <script lang="ts">
-	export default defineComponent({
-		name: 'XLayoutHeader',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'LayoutHeader',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts">
-	import {XHeaderLeft, XHeaderCenter, XHeaderRight} from './components'
-	import {useHtmlClass} from '@/composables/web/useHtmlClass'
-	const {prefixCls} = useHtmlClass('layout-header')
-	const getHeaderClass = computed(() => {
-		return [
-			prefixCls,
-			{
-				[`${prefixCls}--fixed`]: true
-			}
-		]
-	})
+import { HeaderLeft, HeaderCenter, HeaderRight } from './components'
+import { useHtmlClass } from '@/composables/web/useHtmlClass'
+const { prefixCls } = useHtmlClass('layout-header')
+const getHeaderClass = computed(() => {
+	return [
+		prefixCls,
+		{
+			[`${prefixCls}--fixed`]: true
+		}
+	]
+})
 </script>
 
 <style scoped lang="scss">
-	@import '@/style/layouts/header/index.scss';
+@import '@/style/layouts/header/index.scss';
 </style>

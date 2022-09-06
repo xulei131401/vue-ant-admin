@@ -1,10 +1,10 @@
-import { useAppProviderContext } from '@/components/application';
+import { useAppProviderContext } from '@/components/application'
 
 export function useHtmlClass(scope: string) {
-	const values = useAppProviderContext();
+	const values = useAppProviderContext()
 
 	return {
 		prefixCls: `${values.prefixCls}-${scope}`,
-		prefixVar: values.prefixCls,
-	};
+		prefixVar: values.prefixCls
+	}
 }

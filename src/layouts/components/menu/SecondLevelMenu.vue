@@ -31,95 +31,95 @@
 	</div>
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'XSecondLevelMenu',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'XSecondLevelMenu',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts">
-	import {emitter, useMainStore, Menu, getMenuInfoByRouteName, useInjectHelper} from '@/business/export'
-	import type {RouteRecordName} from '@/business/export'
+import { emitter, useMainStore, Menu, getMenuInfoByRouteName, useInjectHelper } from '@/business/export'
+import type { RouteRecordName } from '@/business/export'
 
-	const helper = useInjectHelper()
-	const route = useRoute()
-	const router = useRouter()
-	const mainStore = useMainStore()
-	const {menuList} = storeToRefs(mainStore)
+const helper = useInjectHelper()
+const route = useRoute()
+const router = useRouter()
+const mainStore = useMainStore()
+const { menuList } = storeToRefs(mainStore)
 
-	type MenuState = {
-		selectedKeys: Array<string>
-		openKeys: Array<string>
+type MenuState = {
+	selectedKeys: Array<string>
+	openKeys: Array<string>
+}
+
+const menuState = reactive<MenuState>({
+	selectedKeys: [],
+	openKeys: ['dashboard']
+})
+
+onMounted(() => {
+	setMenuState(route.name!)
+})
+
+watch(
+	() => route.name,
+	(newValue) => {
+		setMenuState(newValue!)
 	}
+)
 
-	const menuState = reactive<MenuState>({
-		selectedKeys: [],
-		openKeys: ['dashboard']
+const onOpenChange = (openKeys: string[]) => {
+	helper.log('openKeys:', openKeys)
+}
+
+const onSelectMenu = (item: any) => {
+	helper.log('onSelectMenu:', item)
+
+	helper.log('menuState前:', menuState)
+	openOneKeys(menuState.openKeys)
+	helper.log('menuState后:', menuState)
+	const dataMenu = item.item['data-menu'] as Menu
+
+	// 添加路由
+	emitter.emit('event_click_menu_item', {
+		title: dataMenu.title,
+		routeName: dataMenu.routeName
 	})
 
-	onMounted(() => {
-		setMenuState(route.name!)
-	})
+	// 路由跳转
+	router.push({ name: dataMenu.routeName })
+}
 
-	watch(
-		() => route.name,
-		(newValue) => {
-			setMenuState(newValue!)
-		}
-	)
-
-	const onOpenChange = (openKeys: string[]) => {
-		helper.log('openKeys:', openKeys)
+const openOneKeys = (openKeys: string[]) => {
+	if (openKeys.length === 0) {
+		return
 	}
 
-	const onSelectMenu = (item: any) => {
-		helper.log('onSelectMenu:', item)
-
-		helper.log('menuState前:', menuState)
-		openOneKeys(menuState.openKeys)
-		helper.log('menuState后:', menuState)
-		const dataMenu = item.item['data-menu'] as Menu
-
-		// 添加路由
-		emitter.emit('event_click_menu_item', {
-			title: dataMenu.title,
-			routeName: dataMenu.routeName
-		})
-
-		// 路由跳转
-		router.push({name: dataMenu.routeName})
+	if (openKeys.length === 1) {
+		menuState.openKeys = openKeys
+		return
 	}
 
-	const openOneKeys = (openKeys: string[]) => {
-		if (openKeys.length === 0) {
-			return
-		}
+	const lastKey = openKeys[openKeys.length - 1]
+	menuState.openKeys = [lastKey]
+}
 
-		if (openKeys.length === 1) {
-			menuState.openKeys = openKeys
-			return
-		}
-
-		const lastKey = openKeys[openKeys.length - 1]
-		menuState.openKeys = [lastKey]
+// 初始化设置菜单的展开状态
+const setMenuState = (routeName: RouteRecordName) => {
+	const _routeName = routeName as string
+	if (!_routeName) {
+		return
 	}
 
-	// 初始化设置菜单的展开状态
-	const setMenuState = (routeName: RouteRecordName) => {
-		const _routeName = routeName as string
-		if (!_routeName) {
-			return
-		}
+	const { currentMenu, parentMenu } = getMenuInfoByRouteName(_routeName)
+	// helper.log('routeName:', currentMenu, parentMenu)
 
-		const {currentMenu, parentMenu} = getMenuInfoByRouteName(_routeName)
-		// helper.log('routeName:', currentMenu, parentMenu)
-
-		if (parentMenu) {
-			menuState.openKeys = [parentMenu.routeName]
-		}
-
-		menuState.selectedKeys = [_routeName]
+	if (parentMenu) {
+		menuState.openKeys = [parentMenu.routeName]
 	}
+
+	menuState.selectedKeys = [_routeName]
+}
 </script>
 
 <style scoped lang="scss"></style>

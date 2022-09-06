@@ -6,10 +6,10 @@
 	</ALayoutFooter>
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'XLayoutFooter',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'LayoutFooter',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts"></script>

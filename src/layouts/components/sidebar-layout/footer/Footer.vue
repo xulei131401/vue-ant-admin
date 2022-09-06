@@ -4,9 +4,9 @@
 	</div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XFooter'
-	}
+export default {
+	name: 'XFooter'
+}
 </script>
 <script setup lang="ts"></script>
 

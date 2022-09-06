@@ -13,9 +13,9 @@ interface LoginActionModel {
 
 function transferResponse(response: any): LoginActionModel {
 	return {
-		id: response.id ?? "",
-		name: response.name ?? "",
-		age: "21"
+		id: response.id ?? '',
+		name: response.name ?? '',
+		age: '21'
 	}
 }
 

@@ -9,9 +9,9 @@
 	</div>
 </template>
 <script lang="ts">
-	export default {
-		name: 'XBreadcrumb'
-	}
+export default {
+	name: 'XBreadcrumb'
+}
 </script>
 <script setup lang="ts"></script>
 

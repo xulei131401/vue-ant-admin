@@ -1,7 +1,7 @@
-.gitignore
+.idea
 .DS_Store
-node_modules/
+.gitignore
 dist/
 *.md
-*.svg
 *.json
+*.env

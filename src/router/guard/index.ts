@@ -1,4 +1,4 @@
-import type { Router, RouteRecordRaw } from 'vue-router';
+import type { Router } from 'vue-router'
 import { createPageGuard } from './pageGuard'
 import { createPermissionGuard } from './permissionGuard'
 

@@ -3,17 +3,17 @@ import type { TableProps, Column } from '../tableProps'
 import { COLUMN_ACTION_KEY } from '../tableProps'
 import XHtmlCell from '@/components/html-cell'
 import XActionGroup from '@/components/action-group'
-import Table from '@surely-vue/table';
+import Table from '@surely-vue/table'
 
 /**
  * Table初始化
  */
 export function useInitTable() {
 	/**
- * 移除Surely Vue水印
- */
+	 * 移除Surely Vue水印
+	 */
 	function removeWatermark() {
-		let domArr = document.getElementsByTagName('div')
+		const domArr = document.getElementsByTagName('div')
 		for (let i = 0; i < domArr.length; i++) {
 			if (['Unlicensed Product', 'Invalid License'].includes(domArr[i].innerText)) {
 				domArr[i].remove()
@@ -22,7 +22,7 @@ export function useInitTable() {
 			if (['Powered by Surely Vue'].includes(domArr[i].innerText)) {
 				// 要不修改透明度，要不把内容去掉
 				// domArr[i].style.opacity = '0 !important'
-				domArr[i].innerText = ""
+				domArr[i].innerText = ''
 			}
 		}
 	}
@@ -52,13 +52,12 @@ export function useTable(tableProps: TableProps) {
 		{ deep: true, immediate: true }
 	)
 
-
 	const selectedRowKeys = ref<string[] | number[]>([])
 
 	const onSelectChange = (changAbleRowKeys: string[] | number[]) => {
-		console.log('selectedRowKeys changed: ', changAbleRowKeys);
-		selectedRowKeys.value = changAbleRowKeys;
-	};
+		console.log('selectedRowKeys changed: ', changAbleRowKeys)
+		selectedRowKeys.value = changAbleRowKeys
+	}
 
 	const xRowSelection = computed(() => {
 		return {
@@ -68,7 +67,6 @@ export function useTable(tableProps: TableProps) {
 			selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT, Table.SELECTION_NONE]
 		}
 	})
-
 
 	/**
 	 * 列转化
@@ -86,8 +84,8 @@ export function useTable(tableProps: TableProps) {
 				fixed: _column.fixed || false,
 				width: _column.width || 80,
 				minWidth: _column.minWidth || 80,
-				maxWidth: _column.maxWidth || 80,
-			};
+				maxWidth: _column.maxWidth || 80
+			}
 
 			if (iColumn.width! > iColumn.minWidth!) {
 				iColumn.minWidth = iColumn.width
@@ -116,7 +114,7 @@ export function useTable(tableProps: TableProps) {
 			xColumns.push(iColumn)
 		}
 
-		console.log("xxxxX:", xColumns)
+		console.log('xxxxX:', xColumns)
 		return xColumns
 	}
 
@@ -131,7 +129,7 @@ export function useTable(tableProps: TableProps) {
 			const iColumn: STableColumnProps = {
 				title: _column.title,
 				dataIndex: _column.key
-			};
+			}
 
 			xColumns.push(iColumn)
 		}

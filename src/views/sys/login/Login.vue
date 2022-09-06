@@ -10,7 +10,7 @@
 				<a-input-password v-model:value="formState.password" autocomplete="off" />
 			</a-form-item>
 
-			<a-form-item :wrapper-col="{span: 4, offset: 10}">
+			<a-form-item :wrapper-col="{ span: 4, offset: 10 }">
 				<a-button type="primary" @click="onLogin">登录</a-button>
 				<a-button style="margin-left: 10px" @click="resetForm">重置</a-button>
 			</a-form-item>
@@ -19,75 +19,75 @@
 </template>
 
 <script setup lang="ts">
-	import type {FormInstance} from 'ant-design-vue'
-	import {message} from 'ant-design-vue'
-	import type {Rule} from 'ant-design-vue/es/form'
-	import {loginAction} from '@/apis'
-	import {login as loginRequest} from '@/business/utils/localStorage'
-	import {useUserStoreReturn} from '@/store/modules/user'
-	const userStore = useUserStoreReturn()
+import type { FormInstance } from 'ant-design-vue'
+import { message } from 'ant-design-vue'
+import type { Rule } from 'ant-design-vue/es/form'
+import { loginAction } from '@/apis'
+import { login as loginRequest } from '@/business/utils/localStorage'
+import { useUserStoreReturn } from '@/store/modules/user'
+const userStore = useUserStoreReturn()
 
-	const layout = {
-		labelCol: {span: 10},
-		wrapperCol: {span: 4}
+const layout = {
+	labelCol: { span: 10 },
+	wrapperCol: { span: 4 }
+}
+
+type FormState = {
+	username: string
+	password: string
+	remember: boolean
+}
+
+const formState = reactive<FormState>({
+	username: '',
+	password: '',
+	remember: true
+})
+
+const formRef = ref<FormInstance>()
+
+let checkUserName = async (_rule: Rule, value: string) => {
+	if (value === '') {
+		return Promise.reject('账号必填')
 	}
 
-	type FormState = {
-		username: string
-		password: string
-		remember: boolean
+	return Promise.resolve()
+}
+
+let checkPassword = async (_rule: Rule, value: string) => {
+	if (value === '') {
+		return Promise.reject('密码必填')
 	}
 
-	const formState = reactive<FormState>({
-		username: '',
-		password: '',
-		remember: true
+	return Promise.resolve()
+}
+
+const rules: Record<string, Rule[]> = {
+	username: [{ required: true, validator: checkUserName, trigger: 'change' }],
+	password: [{ required: true, validator: checkPassword, trigger: 'change' }]
+}
+
+const resetForm = () => {
+	formRef.value?.resetFields()
+}
+
+const onLogin = async () => {
+	await onCheck()
+	await login()
+}
+
+// 表单验证
+const onCheck = async () => {
+	const values = await formRef.value?.validateFields().catch((e) => {
+		message.error('表单校验失败，请检查参数')
 	})
+}
 
-	const formRef = ref<FormInstance>()
-
-	let checkUserName = async (_rule: Rule, value: string) => {
-		if (value === '') {
-			return Promise.reject('账号必填')
-		}
-
-		return Promise.resolve()
-	}
-
-	let checkPassword = async (_rule: Rule, value: string) => {
-		if (value === '') {
-			return Promise.reject('密码必填')
-		}
-
-		return Promise.resolve()
-	}
-
-	const rules: Record<string, Rule[]> = {
-		username: [{required: true, validator: checkUserName, trigger: 'change'}],
-		password: [{required: true, validator: checkPassword, trigger: 'change'}]
-	}
-
-	const resetForm = () => {
-		formRef.value?.resetFields()
-	}
-
-	const onLogin = async () => {
-		await onCheck()
-		await login()
-	}
-
-	// 表单验证
-	const onCheck = async () => {
-		const values = await formRef.value?.validateFields().catch((e) => {
-			message.error('表单校验失败，请检查参数')
-		})
-	}
-
-	const login = async () => {
-		const res = await loginAction({username: 'xxxx', password: '121212'}, {isMock: true})
-		message.success('登录成功')
-		loginRequest()
-		await userStore.afterLoginAction()
-	}
+const login = async () => {
+	const res = await loginAction({ username: 'xxxx', password: '121212' }, { isMock: true })
+	message.success('登录成功')
+	loginRequest()
+	await userStore.afterLoginAction()
+}
 </script>
 <style scoped></style>

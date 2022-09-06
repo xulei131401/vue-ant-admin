@@ -8,11 +8,11 @@
 	</div>
 </template>
 <script setup lang="ts">
-	const router = useRouter()
-	const toHome = () => {
-		console.log('back home')
-		router.push({name: 'dashboard'})
-	}
+const router = useRouter()
+const toHome = () => {
+	console.log('back home')
+	router.push({ name: 'dashboard' })
+}
 </script>
 
 <style scoped lang="scss"></style>

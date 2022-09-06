@@ -1,5 +1,5 @@
 import { API_INFO_LOGIN } from '@/apis/api-description'
-import axiosInstance from "@/business/request/axios"
+import axiosInstance from '@/business/request/axios'
 import { RequestOption } from '@/business/request/type'
 import { LoginActionParameter, LoginActionModel, transferResponse } from '@/apis/controller/login/model'
 

@@ -4,9 +4,8 @@ class ThirdLevelMenu {
 	public static menuList: Array<Menu> = []
 	public static menuMap: Record<string, Menu> = {}
 
-	public static transfer(list: object): void { }
+	public static transfer(list: object): void {}
 }
-
 
 function transferThirdLevelMenu(res: any): Array<Menu> {
 	ThirdLevelMenu.transfer(res)

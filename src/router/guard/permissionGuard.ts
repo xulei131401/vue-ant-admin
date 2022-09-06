@@ -1,8 +1,8 @@
-import type { Router } from 'vue-router';
+import type { Router } from 'vue-router'
 import { isLogin } from '@/business/utils/localStorage'
 import { usePermissionStoreReturn } from '@/store/modules/permission'
 import { ROOT_ROUTE, LOGIN_ROUTE } from '@/router/constant'
-import { addAsyncRoute } from '@/router/helper';
+import { addAsyncRoute } from '@/router/helper'
 
 export function createPermissionGuard(router: Router) {
 	const { permissionState, setHasAddRoute } = usePermissionStoreReturn()
@@ -21,13 +21,14 @@ export function createPermissionGuard(router: Router) {
 		const isLoginStatus = isLogin()
 		// console.log("to:", to)
 		// console.log("from:", from)
-		console.log("router:", router.getRoutes())
+		// console.log("router:", router.getRoutes())
 
 		// 已经登录
 		if (isLoginStatus) {
 			// 添加动态路由, 再重定向一次
 			const res = await _addMoreRoute()
 			if (res) {
+				// console.log("to:", to)
 				return to.fullPath
 			}
 

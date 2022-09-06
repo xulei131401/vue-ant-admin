@@ -8,16 +8,16 @@
 </template>
 
 <script lang="ts">
-	export default {
-		name: 'StudentSignUp'
-	}
+export default {
+	name: 'StudentSignUp'
+}
 </script>
 
 <script setup lang="ts" name="StudentSignUp">
-	// import XTT from './TT.vue'
-	import XSS from './XSS.vue'
-	import {useMockTable} from '@/views/composables/useTableMockData'
-	const {modal, tableProps} = useMockTable()
+// import XTT from './TT.vue'
+import XSS from './XSS.vue'
+import { useMockTable } from '@/views/composables/useTableMockData'
+const { modal, tableProps } = useMockTable()
 </script>
 
 <style scoped lang="scss"></style>

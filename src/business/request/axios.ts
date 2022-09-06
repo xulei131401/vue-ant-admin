@@ -1,29 +1,29 @@
-import { message } from "ant-design-vue";
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import { RequestResponse, RequestOption, ApiInfo } from '@/business/request/type';
-import { timeSleep } from "@/business/utils/mix"
+import { message } from 'ant-design-vue'
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { RequestResponse, RequestOption, ApiInfo } from '@/business/request/type'
+import { timeSleep } from '@/business/utils/mix'
 
 class AxiosRequest {
 	public readonly instance: AxiosInstance
 
 	public constructor() {
 		this.instance = axios.create({
-			baseURL: "/", // 所有的请求地址前缀部分
+			baseURL: '/', // 所有的请求地址前缀部分
 			timeout: 100000, // 请求超时时间毫秒,10s
 			withCredentials: true, // 异步请求携带cookie
 			headers: {
-				"Content-Type": "application/json",
-			},
-		});
+				'Content-Type': 'application/json'
+			}
+		})
 
-		this.initInterceptors();
+		this.initInterceptors()
 	}
 
 	// 处理请求的方法
 	public async request(apiInfo: ApiInfo, param: any = {}, option?: RequestOption) {
-		const { method, url, mockUrl } = apiInfo;
+		const { method, url, mockUrl } = apiInfo
 		param = param ?? {}
-		const options = option ?? {};
+		const options = option ?? {}
 		const { isMock, sleep } = options
 		const realUrl = isMock && mockUrl ? mockUrl : url
 
@@ -33,11 +33,11 @@ class AxiosRequest {
 			response: null
 		}
 
-		let res: any;
+		let res: any
 		if (method == 'get') {
-			res = await this.instance.get(realUrl, { params: param });
+			res = await this.instance.get(realUrl, { params: param })
 		} else if (method == 'post') {
-			res = await this.instance.post(realUrl, param);
+			res = await this.instance.post(realUrl, param)
 		} else {
 			throw new Error(`不支持的请求方式${method}`)
 		}
@@ -51,24 +51,24 @@ class AxiosRequest {
 			await timeSleep(sleep)
 		}
 
-		return res;
+		return res
 	}
 
 	private initInterceptors() {
-		this.setRequestInterceptor();
-		this.setResponseInterceptor();
+		this.setRequestInterceptor()
+		this.setResponseInterceptor()
 	}
 
 	private setRequestInterceptor() {
 		this.instance.interceptors.request.use(
 			(config: AxiosRequestConfig) => {
-				return config;
+				return config
 			},
 			(error: any) => {
-				console.log(error);
-				return Promise.reject(error);
+				console.log(error)
+				return Promise.reject(error)
 			}
-		);
+		)
 	}
 
 	private setResponseInterceptor() {
@@ -81,38 +81,38 @@ class AxiosRequest {
 						return Promise.resolve(data)
 					}
 
-					console.log("接口调用错误:", response.data)
-					message.warn(msg || '网络异常，建议您刷新页面或者稍后再试');
+					console.log('接口调用错误:', response.data)
+					message.warn(msg || '网络异常，建议您刷新页面或者稍后再试')
 				} else {
-					this.errorHandle(response);
+					this.errorHandle(response)
 				}
 
 				return Promise.reject('网络异常，建议您刷新页面或者稍后再试')
 			},
 			(error: any) => {
-				const { response } = error;
+				const { response } = error
 				if (response) {
-					this.errorHandle(response);
-					return Promise.reject(response.data);
+					this.errorHandle(response)
+					return Promise.reject(response.data)
 				} else {
-					message.warn("网络连接异常,请稍后再试!");
+					message.warn('网络连接异常,请稍后再试!')
 				}
 			}
-		);
+		)
 	}
 
 	private errorHandle(res: any) {
 		// 状态码判断
 		switch (res.status) {
 			case 401:
-				break;
+				break
 			case 403:
-				break;
+				break
 			case 404:
-				message.warn("请求的资源不存在");
-				break;
+				message.warn('请求的资源不存在')
+				break
 			default:
-				message.warn("连接错误");
+				message.warn('连接错误')
 		}
 	}
 }

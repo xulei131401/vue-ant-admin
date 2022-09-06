@@ -1,6 +1,8 @@
 import { withInstall } from '@/utils'
 import appLogo from './src/AppLogo.vue'
 import appProvider from './src/AppProvider.vue'
+import appLocalePicker from './src/AppLocalePicker.vue'
 export * from './src/useAppContext'
-export const XAppLogo = withInstall(appLogo)
-export const XAppProvider = withInstall(appProvider)
+export const AppLogo = withInstall(appLogo)
+export const AppProvider = withInstall(appProvider)
+export const AppLocalePicker = withInstall(appLocalePicker)

@@ -5,21 +5,21 @@
 	</div>
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'HeaderTrigger',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'HeaderTrigger',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts">
-	import {emitter} from '@/business/export'
+import { emitter } from '@/business/export'
 
-	const collapsed = ref<boolean>(false)
+const collapsed = ref<boolean>(false)
 
-	const fold = () => {
-		collapsed.value = !collapsed.value
-		emitter.emit('event_fold_sider', collapsed.value)
-	}
+const fold = () => {
+	collapsed.value = !collapsed.value
+	emitter.emit('event_fold_sider', collapsed.value)
+}
 </script>
 
 <style scoped lang="scss"></style>

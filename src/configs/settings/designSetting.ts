@@ -1,1 +1,1 @@
-export const prefixCls = 'easy';
+export const prefixCls = 'ant'

@@ -1,37 +1,37 @@
 <template>
 	<ALayout :class="prefixCls">
-		<XLayoutHeader />
+		<LayoutHeader />
 		<ALayout :class="layoutClass">
-			<XLayoutSideBar />
+			<LayoutSideBar />
 			<ALayout>
-				<XLayoutContent />
-				<XLayoutFooter />
+				<LayoutContent />
+				<LayoutFooter />
 			</ALayout>
 		</ALayout>
 	</ALayout>
 </template>
 <script lang="ts">
-	export default defineComponent({
-		name: 'XLayout',
-		inheritAttrs: false
-	})
+export default defineComponent({
+	name: 'BasicLayout',
+	inheritAttrs: false
+})
 </script>
 
 <script setup lang="ts">
-	import XLayoutHeader from './header/index.vue'
-	import XLayoutSideBar from './sider/index.vue'
-	import XLayoutContent from './content/index.vue'
-	import XLayoutFooter from './footer/index.vue'
-	import {useHtmlClass} from '@/composables/web/useHtmlClass'
+import LayoutHeader from './header/index.vue'
+import LayoutSideBar from './sider/index.vue'
+import LayoutContent from './content/index.vue'
+import LayoutFooter from './footer/index.vue'
+import { useHtmlClass } from '@/composables/web/useHtmlClass'
 
-	const {prefixCls} = useHtmlClass('default-layout')
-	const layoutClass = computed(() => {
-		let cls: string[] = ['ant-layout']
-		cls.push('ant-layout-has-sider')
-		return cls
-	})
+const { prefixCls } = useHtmlClass('default-layout')
+const layoutClass = computed(() => {
+	let cls: string[] = ['ant-layout']
+	cls.push('ant-layout-has-sider')
+	return cls
+})
 </script>
 
 <style scoped lang="scss">
-	@import '@/style/layouts/index.scss';
+@import '@/style/layouts/index.scss';
 </style>

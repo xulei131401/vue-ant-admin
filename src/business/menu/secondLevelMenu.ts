@@ -4,8 +4,7 @@ class SecondLevelMenu {
 	public static menuList: Array<Menu> = []
 	public static menuMap: Record<string, Menu> = {}
 
-	public constructor() {
-	}
+	public constructor() {}
 
 	public static transfer(list: object): void {
 		if (!list) {
@@ -13,30 +12,30 @@ class SecondLevelMenu {
 		}
 
 		// 先清空
-		this.menuList.length = 0;
-		this.menuMap = {};
+		this.menuList.length = 0
+		this.menuMap = {}
 		for (const [menuKey, menu] of Object.entries(list)) {
 			// console.log("menu:", menu)
 			// console.log("menuKey:", menuKey)
 
 			// 组装menu
-			let _menu = new Menu()
-			_menu.title = menu.title ?? ""
-			_menu.icon = menu.icon ?? ""
+			const _menu = new Menu()
+			_menu.title = menu.title ?? ''
+			_menu.icon = menu.icon ?? ''
 			_menu.isShow = !!menu.is_show
-			_menu.identify = menu.route_name ?? ""
-			_menu.routeName = menu.route_name ?? ""
+			_menu.identify = menu.route_name ?? ''
+			_menu.routeName = menu.route_name ?? ''
 			_menu.children = []
 			this.addToMenuMap(_menu)
 			// 组装children
 			const children = menu.children as Array<any>
 			for (const [childrenKey, child] of Object.entries(children)) {
 				// 组装menuItem
-				let _childMenu = new Menu()
-				_childMenu.title = child.title ?? ""
-				_childMenu.icon = child.icon ?? ""
-				_childMenu.identify = child.route_name ?? ""
-				_childMenu.routeName = child.route_name ?? ""
+				const _childMenu = new Menu()
+				_childMenu.title = child.title ?? ''
+				_childMenu.icon = child.icon ?? ''
+				_childMenu.identify = child.route_name ?? ''
+				_childMenu.routeName = child.route_name ?? ''
 				_childMenu.parentMenu = _menu
 				_childMenu.isShow = !!child.is_show
 				_menu.children.push(_childMenu)
@@ -77,4 +76,3 @@ function getMenuInfoByRouteName(routeName: string) {
 }
 
 export { SecondLevelMenu, transferSecondLevelMenu, getMenuInfoByRouteName }
-

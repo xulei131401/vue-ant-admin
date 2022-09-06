@@ -1,4 +1,4 @@
-const LayoutSiderCollapsedWidth: number = 80
-const LayoutSiderWidth: number = 200
+const LayoutSiderCollapsedWidth = 80
+const LayoutSiderWidth = 200
 
 export { LayoutSiderCollapsedWidth, LayoutSiderWidth }

@@ -2,25 +2,25 @@ class Menu {
 	/**
 	 * 唯一标识
 	 */
-	public identify: string = ""
+	public identify = ''
 	/**
 	 * 菜单标题，名称，用来显示
 	 */
-	public title: string = ""
+	public title = ''
 	/**
 	 * 菜单icon
 	 */
-	public icon: string = ""
+	public icon = ''
 
 	/**
 	 * 菜单前端路由name
 	 */
-	public routeName: string = ""
+	public routeName = ''
 
 	/**
 	 * 是否展示
 	 */
-	public isShow: boolean = true
+	public isShow = true
 
 	/**
 	 * 父级菜单
@@ -37,7 +37,7 @@ class Menu {
 	}
 
 	public isDashboard(): boolean {
-		return this.routeName == "dashboard"
+		return this.routeName == 'dashboard'
 	}
 }
 

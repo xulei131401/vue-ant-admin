@@ -1,0 +1,62 @@
+{
+	"code": "0",
+	"data": [
+		{
+			"title": "工作台",
+			"route_name": "dashboard",
+			"icon": "HistoryOutlined",
+			"children": []
+		},
+		{
+			"title": "仪表盘",
+			"route_name": "preview",
+			"icon": "DashboardOutlined",
+			"children": [
+				{
+					"title": "分析页",
+					"route_name": "preview_analysis",
+					"icon": "DashboardOutlined",
+					"actions": []
+				}
+			]
+		},
+		{
+			"route_name": "student",
+			"title": "学生管理",
+			"icon": "UserOutlined",
+			"children": [
+				{
+					"title": "报名学生",
+					"route_name": "student_signup",
+					"icon": "UserOutlined",
+					"actions": []
+				},
+				{
+					"title": "体验学生",
+					"route_name": "student_experience",
+					"icon": "UserOutlined",
+					"actions": []
+				}
+			]
+		},
+		{
+			"route_name": "game",
+			"title": "游戏管理",
+			"icon": "GiftOutlined",
+			"children": [
+				{
+					"title": "火影忍者",
+					"route_name": "game_naruto",
+					"icon": "GiftOutlined",
+					"actions": []
+				},
+				{
+					"title": "王者荣耀",
+					"route_name": "game_king",
+					"icon": "GiftOutlined",
+					"actions": []
+				}
+			]
+		}
+	]
+}

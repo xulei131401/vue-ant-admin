@@ -6,23 +6,22 @@ function login() {
 	const info: UserInfo = {
 		isLogin: true
 	}
-	localStorage.setItem("user_info", JSON.stringify(info));
+	localStorage.setItem('user_info', JSON.stringify(info))
 }
 
 function logout() {
-	localStorage.removeItem("user_info");
+	localStorage.removeItem('user_info')
 }
 
 function isLogin(): boolean {
-	let info: string = localStorage.getItem("user_info") ?? ""
+	const info: string = localStorage.getItem('user_info') ?? ''
 	if (!info) {
 		return false
 	}
 
-	let userInfo: UserInfo = JSON.parse(info) as UserInfo
+	const userInfo: UserInfo = JSON.parse(info) as UserInfo
 	return userInfo.isLogin
 }
-
 
 // function set(key, value) {
 // 	var curtime = new Date().getTime();//获取当前时间
@@ -41,9 +40,4 @@ function isLogin(): boolean {
 // 	}
 // }
 
-
-export {
-	login,
-	logout,
-	isLogin,
-}
+export { login, logout, isLogin }
