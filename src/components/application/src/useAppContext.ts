@@ -1,10 +1,9 @@
 import { InjectionKey } from 'vue'
 import { createContext, useContext } from '@/composables/core/useContext'
 
-import { log } from '@/business/utils/logx'
-import type { TLog } from '@/business/utils/logx'
-import { prefixCls as DefaultPrefixCls } from '@/configs/settings/designSetting'
-
+import { log } from '@/utils/logx'
+import type { TLog } from '@/utils/logx'
+import { htmlClassPrefixCls } from '@/configs'
 interface AppProviderContextProps {
 	prefixCls: string // 样式前缀
 	log: TLog
@@ -13,7 +12,7 @@ interface AppProviderContextProps {
 const key: InjectionKey<AppProviderContextProps> = Symbol()
 
 export function createDefaultAppProviderContext() {
-	createAppProviderContext({ prefixCls: DefaultPrefixCls, log: log })
+	createAppProviderContext({ prefixCls: htmlClassPrefixCls, log: log })
 }
 
 export function createAppProviderContext(context: AppProviderContextProps) {

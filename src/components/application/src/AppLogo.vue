@@ -1,9 +1,9 @@
 <template>
 	<div class="x-logo-wrapper">
-		<div class="logo" :style="logoFoldStyle">
+		<div class="logo">
 			<router-link to="/">
 				<img src="@/assets/logo.png" alt="logo" width="32" height="32" />
-				<h1 v-show="!collapsed">Holy Fronted</h1>
+				<h1>Holy Fronted</h1>
 			</router-link>
 		</div>
 	</div>
@@ -15,19 +15,7 @@ export default defineComponent({
 })
 </script>
 
-<script setup lang="ts">
-import { useMenuFold } from '@/composables/useMenuFold'
-
-const { collapsed } = useMenuFold()
-
-const logoFoldStyle = computed(() => {
-	if (collapsed.value) {
-		return { padding: '16px 24px' }
-	}
-
-	return {}
-})
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .logo {

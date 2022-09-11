@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<div class="x-tab-navigation-wrapper">
 		<a-tabs v-model:activeKey="currentTabPaneState.activeKey" hide-add type="editable-card" @tabClick="switchPane">
 			<a-tab-pane v-for="pane in panes" :key="pane.routeName" :closable="false">
@@ -189,4 +189,4 @@ const initTab = () => {
 	font-size: 16px;
 	cursor: pointer;
 }
-</style>
+</style> -->

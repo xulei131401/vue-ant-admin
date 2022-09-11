@@ -26,11 +26,11 @@ export default defineComponent({
 <script setup lang="ts">
 import MenuItemWrapper from './components/MenuItemWrapper.vue'
 import { RouteLocationNormalizedLoaded } from 'vue-router'
-import { useHtmlClass } from '@/composables/web/useHtmlClass'
+import { usePrefixCls } from '@/composables/core/useHtml'
 import { basicMenuProps, type MenuState } from './props'
 import { useOpenKeys, useSelectedKeys } from './composables/useBasicMenu'
-
-const { prefixCls } = useHtmlClass('basic-menu')
+import { listenerRoute } from '@/router/helper'
+const { prefixCls } = usePrefixCls('basic-menu')
 const route = useRoute()
 const props = defineProps(basicMenuProps())
 const menuState = reactive<MenuState>({
@@ -58,15 +58,19 @@ async function onMenusChange(_route?: RouteLocationNormalizedLoaded) {
 	}
 
 	// 获取路由path
-	console.log('route:', route.path)
+	// console.log('route:', route.path)
 }
 
 const getMenuClass = computed(() => {
 	return [prefixCls]
 })
 
+listenerRoute((route) => {
+	console.log('监听到了route:', route)
+})
+
 // 暴露值给模板
-const { defaultSelectedKeys, openKeys, selectedKeys } = toRefs(menuState)
+const { openKeys, selectedKeys } = toRefs(menuState)
 </script>
 
 <style scoped lang="scss"></style>

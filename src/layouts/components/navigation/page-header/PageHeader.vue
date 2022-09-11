@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<div class="x-page-header-wrapper">
 		<a-page-header :ghost="false" class="page-header" :title="title" :breadcrumb="breadcrumb" />
 	</div>
@@ -87,4 +87,4 @@ const createBreadcrumb = (routeName: RouteRecordName) => {
 	border: 1px solid rgb(235, 237, 240);
 	background-color: #fff;
 }
-</style>
+</style> -->

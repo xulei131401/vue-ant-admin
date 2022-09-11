@@ -1,5 +1,5 @@
 import { PropType } from 'vue'
-import type { Menu } from './menu/menu'
+import type { MenuType } from '@/models/menu/menu'
 import { MenuMode, MenuModeEnum, MenuTheme, MenuThemeEnum } from '@/enums/menuEnum'
 
 export interface MenuState {
@@ -11,7 +11,7 @@ export interface MenuState {
 // TODO: 参考 https://www.antdv.com/components/menu-cn
 export const basicMenuProps = () => {
 	return {
-		items: { type: Array as PropType<Menu[]>, default: [] }, // 菜单数据
+		items: { type: Array as PropType<MenuType[]>, default: [] }, // 菜单数据
 		mode: { type: String as PropType<MenuMode>, default: MenuModeEnum.INLINE }, // 菜单类型，现在支持垂直、水平、和内嵌模式三种
 		inlineIndent: { type: Number, default: 20 }, // inline 模式的菜单缩进宽度
 		theme: { type: String as PropType<MenuTheme>, default: MenuThemeEnum.DARK }, // 主题颜色,light | dark

@@ -1,24 +1,15 @@
-import type { App, Plugin, Component } from 'vue'
-
 export const noop = () => { }
-/**
- * 通用组件全局安装函数
- * @param component
- * @param alias
- * @returns
- */
-export const withInstall = <T>(component: T, alias?: string) => {
-	const comp = component as any
-	comp.install = (app: App) => {
-		if (!comp.name) {
-			console.error('组件没有name属性:', comp)
-			return
-		}
 
-		app.component(comp.name || comp.displayName, <Component>component)
-		if (alias) {
-			app.config.globalProperties[alias] = component
-		}
-	}
-	return component as T & Plugin
-}
+// util统一导出
+export * from './component'
+export * from './error'
+export * from './env'
+export * from './is'
+export * from './mix'
+export * from './time'
+export * from './logx'
+export * from './emitter'
+export * from './dayjs'
+export * from './storage/localStorage'
+export * from './locale'
+export * from './http'

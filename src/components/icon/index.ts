@@ -1,5 +1,4 @@
-import Icon from './src/index.vue'
-import SvgIcon from './src/SvgIcon.vue'
-export { Icon, SvgIcon }
-
-export default Icon
+import SvgIcon from './src/components/SvgIcon.vue'
+import AntIcon from './src/components/AntIcon.vue'
+import CustomIcon from './src/components/CustomIcon.vue'
+export { AntIcon, SvgIcon, CustomIcon }

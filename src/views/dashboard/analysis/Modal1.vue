@@ -14,7 +14,7 @@ const modalProps = {
 	width: 800,
 	okType: 'link',
 	loading: true,
-	loadingTip: 'asdasd'
+	loadingTip: 'loading tip'
 }
 onMounted(() => {
 	modal.value.openModal()

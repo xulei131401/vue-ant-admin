@@ -5,14 +5,12 @@ import { setupRouter } from '@/router'
 import { setupStore } from '@/store'
 import App from './App.vue'
 
-import 'ant-design-vue/dist/antd.css'
-
 async function bootstrap() {
 	const app = createApp(App)
-	setupGlobal(app)
 	setupStore(app)
 	setupRouter(app)
 	setupGlobDirectives(app)
+	setupGlobal(app)
 	app.mount('#app')
 }
 

@@ -1,6 +1,5 @@
 import { RouteRecordRaw } from 'vue-router'
 import { LAYOUT_COMPONENT } from '@/router/components'
-import { t } from '@/composables/useI18n'
 
 const dashboard: RouteRecordRaw = {
 	path: '/dashboard',
@@ -10,7 +9,7 @@ const dashboard: RouteRecordRaw = {
 	meta: {
 		orderNo: 10,
 		icon: 'ion:grid-outline',
-		title: t('routes.dashboard.dashboard')
+		title: ''
 	},
 	children: [
 		{
@@ -18,7 +17,7 @@ const dashboard: RouteRecordRaw = {
 			name: 'Analysis',
 			component: () => import('@/views/dashboard/analysis/index.vue'),
 			meta: {
-				title: t('routes.dashboard.analysis')
+				title: ''
 			}
 		},
 		{
@@ -26,7 +25,7 @@ const dashboard: RouteRecordRaw = {
 			name: 'Workbench',
 			component: () => import('@/views/dashboard/workbench/index.vue'),
 			meta: {
-				title: t('routes.dashboard.workbench')
+				title: ''
 			}
 		}
 	]

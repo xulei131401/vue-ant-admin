@@ -1,2 +1,3 @@
-export * from './controller/login'
-export * from './controller/my-menu'
+export * from './actions/login'
+export * from './actions/my-menu'
+export * from './actions/my-info'

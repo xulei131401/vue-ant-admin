@@ -2,7 +2,7 @@
 	<ALayout :class="prefixCls">
 		<LayoutHeader />
 		<ALayout :class="layoutClass">
-			<LayoutSideBar />
+			<LayoutSider />
 			<ALayout>
 				<LayoutContent />
 				<LayoutFooter />
@@ -18,13 +18,13 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import LayoutHeader from './header/index.vue'
-import LayoutSideBar from './sider/index.vue'
-import LayoutContent from './content/index.vue'
-import LayoutFooter from './footer/index.vue'
-import { useHtmlClass } from '@/composables/web/useHtmlClass'
+import { LayoutHeader } from './header'
+import { LayoutSider } from './sider'
+import { LayoutContent } from './content'
+import { LayoutFooter } from './footer'
+import { usePrefixCls } from '@/composables/core/useHtml'
 
-const { prefixCls } = useHtmlClass('default-layout')
+const { prefixCls } = usePrefixCls('default-layout')
 const layoutClass = computed(() => {
 	let cls: string[] = ['ant-layout']
 	cls.push('ant-layout-has-sider')

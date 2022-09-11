@@ -22,11 +22,9 @@
 import type { FormInstance } from 'ant-design-vue'
 import { message } from 'ant-design-vue'
 import type { Rule } from 'ant-design-vue/es/form'
-import { loginAction } from '@/apis'
-import { login as loginRequest } from '@/business/utils/localStorage'
-import { useUserStoreReturn } from '@/store/modules/user'
-const userStore = useUserStoreReturn()
+import { useUserStore } from '@/store/modules/user'
 
+const { login: loginAction } = useUserStore()
 const layout = {
 	labelCol: { span: 10 },
 	wrapperCol: { span: 4 }
@@ -84,10 +82,8 @@ const onCheck = async () => {
 }
 
 const login = async () => {
-	const res = await loginAction({ username: 'xxxx', password: '121212' }, { isMock: true })
+	await loginAction()
 	message.success('登录成功')
-	loginRequest()
-	await userStore.afterLoginAction()
 }
 </script>
 <style scoped></style>

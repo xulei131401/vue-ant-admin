@@ -23,7 +23,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { useHtmlClass } from '@/composables/web/useHtmlClass'
+import { usePrefixCls } from '@/composables/core/useHtml'
 
 const props = defineProps({
 	canFullscreen: { type: Boolean, default: true },
@@ -32,7 +32,7 @@ const props = defineProps({
 
 const emits = defineEmits(['cancel', 'fullscreen'])
 
-const { prefixCls } = useHtmlClass('modal-close')
+const { prefixCls } = usePrefixCls('modal-close')
 
 const getModalCloseClass = computed(() => {
 	return [

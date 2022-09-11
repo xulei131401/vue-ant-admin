@@ -1,10 +1,8 @@
 import type { App } from 'vue'
 import { createPinia } from 'pinia'
 
-const store = createPinia()
+const pinia = createPinia()
 
 export function setupStore(app: App) {
-	app.use(store)
+	app.use(pinia)
 }
-
-export { store }

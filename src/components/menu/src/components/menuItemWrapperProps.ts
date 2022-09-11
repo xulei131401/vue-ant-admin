@@ -1,10 +1,10 @@
 import { PropType } from 'vue'
-import type { Menu } from '../menu/menu'
+import type { MenuType } from '@/models/menu/menu'
 
 export const menuItemWrapperProps = () => {
-    return {
-        item: { type: Object as PropType<Menu>, default: {} }
-    }
+	return {
+		item: { type: Object as PropType<MenuType>, default: {} }
+	}
 }
 
 export type MenuItemWrapperProps = VuePropsType<typeof menuItemWrapperProps>

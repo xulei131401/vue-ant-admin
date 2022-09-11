@@ -1,5 +1,6 @@
 import { App, Component, Plugin } from 'vue'
 import * as antIcons from '@ant-design/icons-vue'
+import 'ant-design-vue/dist/antd.css'
 // import { Button, Layout, Menu, Form, Input, message, Dropdown, Tabs, Avatar, Spin, Result, PageHeader, Drawer, Tooltip, Tag, Modal, Table } from 'ant-design-vue'
 // import Icon from '@ant-design/icons-vue'
 // const normalComponents: Plugin[] = [Button, Dropdown, Tabs, Layout, Menu, Form, Input, Avatar, Spin, Result, PageHeader, Drawer, Tooltip, Tag, Modal, Table, Tooltip]

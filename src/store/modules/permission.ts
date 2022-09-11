@@ -1,25 +1,66 @@
 import { defineStore } from 'pinia'
-import { store } from '@/store'
+import { MenuType } from '@/models/menu/menu'
+import { myMenuAction } from '@/apis'
+import { asyncRoutes } from '@/router/routes/modules'
+import { router } from '@/router'
+import type { RouteRecordRaw } from 'vue-router'
 
-interface PermissionState {
-	hasAddRoute: boolean // 是否已经添加过路由
-}
+export const usePermissionStore = defineStore({
+	id: 'app-permission',
+	state: () => ({
+		routeBuildFlag: false, // 路由是否构建完毕
+		backMenuList: [] as MenuType[],
+		frontMenuList: [] as MenuType[]
+	}),
+	getters: {
+		getBackMenuList(): MenuType[] {
+			return this.backMenuList
+		}
+	},
+	actions: {
+		routeBuildFinish() {
+			this.routeBuildFlag = true
+		},
+		async setBackMenuList() {
+			this.backMenuList = await myMenuAction({ isMock: true })
+		},
+		async setFrontMenuList() {
+			return
+		},
+		/**
+		 * 获取最终处理完的路由
+		 * @returns
+		 */
+		async getRoutes(): Promise<RouteRecordRaw[]> {
+			// 测试环境下使用
+			this.setBackMenuList()
+			const routes: RouteRecordRaw[] = []
+			routes.push(...asyncRoutes)
+			// 根据menu返回真实的路由列表
+			// asyncRoutes.forEach((route) => {
+			// 	router.addRoute(route as RouteRecordRaw)
+			// })
 
-export const usePermissionStore = defineStore('app-permission', () => {
-	const permissionState = reactive<PermissionState>({
-		hasAddRoute: false
-	})
+			return routes
+		},
+		/**
+		 * 首次构建路由
+		 * @returns
+		 */
+		async firstBuildRoute() {
+			// 首次构建路由完毕
+			if (this.routeBuildFlag) {
+				return false
+			}
 
-	const setHasAddRoute = () => {
-		permissionState.hasAddRoute = true
-	}
+			// 首次构建路由
+			const routes = await this.getRoutes()
+			routes.forEach((route) => {
+				router.addRoute(route as unknown as RouteRecordRaw)
+			})
 
-	return {
-		permissionState,
-		setHasAddRoute
+			this.routeBuildFinish()
+			return true
+		}
 	}
 })
-
-export function usePermissionStoreReturn() {
-	return usePermissionStore(store)
-}

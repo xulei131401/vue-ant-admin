@@ -1,37 +1,18 @@
-import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-import * as path from 'path'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import { defineConfig, UserConfig, ConfigEnv } from 'vite'
+import { viteLoadEnv, createVitePlugins, pathResolve } from './build/vite'
 
-function pathResolve(dir: string) {
-	//console.log(path.resolve(process.cwd(), '.', dir))
-	return path.resolve(process.cwd(), '.', dir)
-}
-
-// https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
-	// const root = process.cwd()
-	// const viteEnv = loadEnv(mode, root)
-	// const { VITE_PORT } = viteEnv
+// TODO: 参考 https://vitejs.dev/config/
+export default defineConfig((configEnv: ConfigEnv): UserConfig => {
+	// 加载环境变量
+	const { mode } = configEnv
+	const viteEnv = viteLoadEnv(mode, process.cwd())
+	const { VITE_PORT } = viteEnv
 
 	return {
-		plugins: [
-			vue(),
-			vueJsx(),
-			AutoImport({
-				imports: ['vue', 'vue-router', 'pinia'], // 自动导入vue和vue-router相关函数
-				dts: 'types/auto-import.d.ts' // 生成 `auto-import.d.ts` 全局声明
-			}),
-			Components({
-				resolvers: [AntDesignVueResolver()]
-			})
-		],
+		plugins: createVitePlugins(viteEnv),
 		server: {
 			open: true,
-			port: 9527
+			port: VITE_PORT
 			// proxy: {
 			//     '/': {
 			//      target: "http://localhost/public/index.php/",
@@ -54,9 +35,6 @@ export default defineConfig(({ command, mode }) => {
 				}
 			]
 		},
-		//   optimizeDeps: {
-		//     include: ['@surely-vue/table', 'vue'],
-		//   },
 		css: {
 			preprocessorOptions: {
 				less: {
@@ -68,7 +46,7 @@ export default defineConfig(({ command, mode }) => {
 			}
 		},
 		optimizeDeps: {
-			include: ['@surely-vue/table', 'vue']
+			include: ['@surely-vue/table', 'vue', 'ant-design-vue/es/locale/zh_CN', 'ant-design-vue/es/locale/en_US']
 		}
 	}
 })

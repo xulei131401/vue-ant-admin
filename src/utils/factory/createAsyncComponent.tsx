@@ -1,6 +1,6 @@
-import {defineAsyncComponent} from 'vue'
-import {Spin} from 'ant-design-vue'
-import {noop} from '@/utils'
+import { defineAsyncComponent } from 'vue'
+import { Spin } from 'ant-design-vue'
+import { noop } from '@/utils'
 
 // const Loading: FunctionalComponent<{ size: 'small' | 'default' | 'large' }> = (props) => {
 //   const style: CSSProperties = {
@@ -25,7 +25,7 @@ interface Options {
 }
 
 export function createAsyncComponent(loader: Fn, options: Options = {}) {
-	const {size = 'small', delay = 100, timeout = 30000, loading = false, retry = true} = options
+	const { size = 'small', delay = 100, timeout = 30000, loading = false, retry = true } = options
 	return defineAsyncComponent({
 		loader,
 		loadingComponent: loading ? <Spin spinning={true} size={size} /> : undefined,

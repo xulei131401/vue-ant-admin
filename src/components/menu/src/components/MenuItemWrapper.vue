@@ -11,11 +11,11 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import SubMenu from './SubMenu.vue'
-import MenuItem from './MenuItem.vue'
-import { useHtmlClass } from '@/composables/web/useHtmlClass'
+import SubMenu from './sub-menu/SubMenu.vue'
+import MenuItem from './menu-item/MenuItem.vue'
+import { usePrefixCls } from '@/composables/core/useHtml'
 import { menuItemWrapperProps } from './menuItemWrapperProps'
-const { prefixCls } = useHtmlClass('basic-menu-item')
+const { prefixCls } = usePrefixCls('basic-menu-item-wrapper')
 defineProps(menuItemWrapperProps())
 </script>
 
