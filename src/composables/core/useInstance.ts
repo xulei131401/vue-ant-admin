@@ -6,5 +6,6 @@ export const getInstance = (customRef: Ref) => {
 	if (!instance) {
 		error('useModalInner instance is undefined!')
 	}
-	return instance
+
+	return { instance }
 }

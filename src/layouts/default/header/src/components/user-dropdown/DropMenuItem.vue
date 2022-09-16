@@ -3,7 +3,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'XUserDropdownMenuItem',
+	name: 'UserDropdownMenuItem',
 	inheritAttrs: false
 })
 </script>

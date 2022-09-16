@@ -1,0 +1,16 @@
+{
+	"mode": {
+		"leftRightLayout": "左右布局",
+		"topBottomLayout": "上下布局"
+	},
+	"config": {
+		"themeMode": "主题",
+		"layoutMode": "布局模式",
+		"headerSkin": "顶栏换肤",
+		"menuSkin": "菜单换肤",
+		"layoutSetting": "布局设置",
+		"fixedHeader": "固定header",
+		"on": "开",
+		"off": "关"
+	}
+}

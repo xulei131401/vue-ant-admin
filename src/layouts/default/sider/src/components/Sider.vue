@@ -1,5 +1,6 @@
 <template>
-	<ALayoutSider :class="getSiderClass" breakpoint="lg" :collapsed="getCollapsed" :trigger="null" collapsible :collapsedWidth="LayoutSiderCollapsedWidth" :width="LayoutSiderWidth">
+	<!--左右布局,侧边栏-->
+	<ALayoutSider :class="getClass" breakpoint="lg" :collapsed="getCollapsed" :trigger="null" collapsible :collapsedWidth="getCollapsedWidth" :width="getWidth">
 		<LayoutMenu />
 	</ALayoutSider>
 </template>
@@ -13,13 +14,11 @@ export default defineComponent({
 <script setup lang="ts">
 import { LayoutMenu } from '@/layouts/default/menu'
 import { usePrefixCls } from '@/composables/core/useHtml'
-import { useMenuConfig } from '@/configs/menu/useMenuConfig'
+import { useSiderConfig } from '@/composables/config/useSiderConfig'
 
-const LayoutSiderCollapsedWidth = 80
-const LayoutSiderWidth = 200
 const { prefixCls } = usePrefixCls('layout-sideBar')
-const { getCollapsed } = useMenuConfig()
-const getSiderClass = computed(() => {
+const { getWidth, getCollapsedWidth, getCollapsed } = useSiderConfig()
+const getClass = computed(() => {
 	return [prefixCls]
 })
 </script>
@@ -27,6 +26,6 @@ const getSiderClass = computed(() => {
 <style scoped lang="scss">
 $prefix-cls: '#{$namespace}-layout-sideBar';
 .#{$prefix-cls} {
-	color: red;
+	// color: red;
 }
 </style>

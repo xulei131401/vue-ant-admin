@@ -1,6 +1,6 @@
 <template>
 	<AMenu
-		:class="getMenuClass"
+		:class="getClass"
 		:subMenuOpenDelay="0.2"
 		:theme="theme"
 		:inlineIndent="inlineIndent"
@@ -61,7 +61,7 @@ async function onMenusChange(_route?: RouteLocationNormalizedLoaded) {
 	// console.log('route:', route.path)
 }
 
-const getMenuClass = computed(() => {
+const getClass = computed(() => {
 	return [prefixCls]
 })
 

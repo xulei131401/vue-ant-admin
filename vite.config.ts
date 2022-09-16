@@ -21,6 +21,12 @@ export default defineConfig((configEnv: ConfigEnv): UserConfig => {
 			//     }
 			// }
 		},
+		build: {
+			target: 'es2020',
+			cssTarget: 'chrome80',
+			outDir: 'dist',
+			chunkSizeWarningLimit: 2000
+		},
 		resolve: {
 			// 配置路径别名
 			alias: [

@@ -1,19 +1,20 @@
-import { MenuConfig, defaultMenuConfig } from './menu/menu'
-import { GlobalConfig, defaultGlobalConfig } from './global/global'
-import { LocaleConfig, defaultLocaleConfig } from './locale/locale'
+import { MixConfig, defaultMixConfig } from './mix'
+import { LocaleConfig, defaultLocaleConfig } from './locale'
+import { LayoutConfig, defaultLayoutConfig } from './layout'
 
-export * from './menu/menu'
-export * from './global/global'
-export * from './locale/locale'
+export * from './layout'
+export * from './locale'
+export * from './mix'
+export * from './layout/theme'
 
-export interface ProjectConfig {
-	global: GlobalConfig
-	menu: MenuConfig
+export interface AppConfig {
+	mix: MixConfig
+	layout: LayoutConfig
 	locale: LocaleConfig
 }
 
-export const defaultProjectConfig: ProjectConfig = {
-	global: defaultGlobalConfig,
-	menu: defaultMenuConfig,
+export const defaultAppConfig: AppConfig = {
+	mix: defaultMixConfig,
+	layout: defaultLayoutConfig,
 	locale: defaultLocaleConfig
 }

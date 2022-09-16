@@ -1,5 +1,5 @@
 <template>
-	<div :class="getModalCloseClass">
+	<div :class="getClass">
 		<!--全屏icon-->
 		<template v-if="canFullscreen">
 			<ATooltip title="最大化" placement="bottom" v-if="fullScreen">
@@ -34,7 +34,7 @@ const emits = defineEmits(['cancel', 'fullscreen'])
 
 const { prefixCls } = usePrefixCls('modal-close')
 
-const getModalCloseClass = computed(() => {
+const getClass = computed(() => {
 	return [
 		prefixCls,
 		`${prefixCls}--custom`,

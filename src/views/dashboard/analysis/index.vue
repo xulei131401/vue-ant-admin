@@ -1,21 +1,12 @@
 <template>
-	<div>
-		<!-- <sider /> -->
-		<!-- <Modal1 /> -->
-		{{ $t('bingo.common.dark') }}
-		{{ $t('PageHeader.back') }}
-	</div>
+	<div>自定义内容</div>
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'Analysis',
-	inheritAttrs: false
+	name: 'Analysis'
 })
 </script>
 
-<script setup lang="ts">
-// import Modal1 from './Modal1.vue'
-// import sider from '../../test/sider.vue'
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss"></style>

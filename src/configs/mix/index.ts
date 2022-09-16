@@ -1,9 +1,9 @@
 export const htmlClassPrefixCls = 'bingo'
 
-export interface GlobalConfig {
+export interface MixConfig {
 	htmlClassPrefixCls: string // 全局class命名前缀
 }
 
-export const defaultGlobalConfig: GlobalConfig = {
+export const defaultMixConfig: MixConfig = {
 	htmlClassPrefixCls: htmlClassPrefixCls
 }

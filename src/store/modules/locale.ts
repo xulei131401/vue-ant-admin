@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { LocaleConfig, defaultLocaleConfig } from '@/configs'
+import { LocaleConfig, defaultLocaleConfig } from '@/configs/locale'
 import type { LocaleType } from '@/utils/locale'
 
 export const useLocaleStore = defineStore({
@@ -9,7 +9,7 @@ export const useLocaleStore = defineStore({
 	}),
 	getters: {
 		getLocale(): LocaleType {
-			return this.localInfo?.locale ?? 'zh_CN'
+			return this.localInfo.locale
 		}
 	},
 	actions: {}

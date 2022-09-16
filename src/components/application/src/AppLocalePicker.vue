@@ -1,10 +1,12 @@
 <template>
-	<Dropdown placement="bottom" :trigger="['click']" :dropMenuList="availableLocaleList" :selectedKeys="selectedKeys" @menu-event="handleMenuEvent" overlayClassName="app-locale-picker-overlay">
-		<span class="cursor-pointer flex items-center">
-			<!-- <Icon icon="ion:language" /> -->中文
-			<span v-if="showText" class="ml-1">{{ getLocaleText }}</span>
-		</span>
-	</Dropdown>
+	<div>
+		<Dropdown placement="bottom" :trigger="['click']" :dropMenuList="availableLocaleList" :selectedKeys="selectedKeys" @menu-event="handleMenuEvent" overlayClassName="app-locale-picker-overlay">
+			<span class="cursor-pointer flex items-center">
+				<AntIcon name="FontColorsOutlined" />
+				<span v-if="showText" class="ml-1">{{ getLocaleText }}</span>
+			</span>
+		</Dropdown>
+	</div>
 </template>
 <script lang="ts">
 export default defineComponent({
@@ -13,10 +15,10 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { Dropdown } from '@/components/dropdown'
-import type { DropMenu } from '@/components/dropdown'
-import { availableLocaleList } from '@/configs'
-import { LocaleType } from '@/utils/locale'
+import { Dropdown, type DropMenu } from '@/components/dropdown'
+import AntIcon from '@/components/icon/src/components/AntIcon.vue'
+import { availableLocaleList } from '@/configs/locale'
+import { LocaleType } from '@/utils'
 
 const props = defineProps({
 	/**

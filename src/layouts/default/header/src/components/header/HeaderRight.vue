@@ -1,5 +1,5 @@
 <template>
-	<div :class="getHeaderRightClass">
+	<div :class="getClass">
 		<FullScreen :class="`${prefixCls}__item`" />
 		<AppLocalePicker :class="`${prefixCls}__item`" />
 		<UserDropdown :class="`${prefixCls}__item`" />
@@ -14,14 +14,24 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { UserDropdown, FullScreen } from '../index'
+import { UserDropdown } from '../index'
+import { FullScreen } from '../index'
 import { SettingButton } from '@/layouts/default/setting'
 import { AppLocalePicker } from '@/components/application'
 import { usePrefixCls } from '@/composables/core/useHtml'
+import { useAppConfig } from '@/composables/config/useAppConfig'
 
 const { prefixCls } = usePrefixCls('layout-header-right')
-const getHeaderRightClass = computed(() => {
-	return [prefixCls]
+const { getThemeMode } = useAppConfig()
+
+const getClass = computed(() => {
+	const theme = unref(getThemeMode)
+	return [
+		prefixCls,
+		{
+			[`${prefixCls}--${theme}`]: theme
+		}
+	]
 })
 </script>
 

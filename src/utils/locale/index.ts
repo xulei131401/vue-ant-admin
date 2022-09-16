@@ -1,2 +1,3 @@
 export * from './typing'
-export * from './genMessage'
+export * from './message'
+export * from './localeCache'

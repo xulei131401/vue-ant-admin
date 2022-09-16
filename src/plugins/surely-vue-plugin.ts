@@ -5,7 +5,11 @@ import { setLicenseKey } from '@surely-vue/table'
 
 export default {
 	install(app: App) {
-		app.use(STable)
-		setLicenseKey('fdafefdaffklfjajuiefhrdbfdnsafjkasyegwfpqfldfd45f48ew468fr5ds')
+		setupSurelyVue(app)
 	}
+}
+
+export function setupSurelyVue(app: App) {
+	app.use(STable)
+	setLicenseKey('fdafefdaffklfjajuiefhrdbfdnsafjkasyegwfpqfldfd45f48ew468fr5ds')
 }

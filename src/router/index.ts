@@ -12,6 +12,12 @@ export const router = createRouter({
 	scrollBehavior: () => ({ left: 0, top: 0 })
 })
 
+export default {
+	install(app: App) {
+		setupRouter(app)
+	}
+}
+
 // 注册路由
 export function setupRouter(app: App) {
 	app.use(router)

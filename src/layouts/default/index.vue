@@ -1,9 +1,14 @@
 <template>
 	<ALayout :class="prefixCls">
-		<LayoutHeader />
+		<!--上下布局，上-->
+		<TopBottomLayoutHeader />
+		<!--上下布局，下-->
 		<ALayout :class="layoutClass">
+			<!--左右布局，左-->
 			<LayoutSider />
 			<ALayout>
+				<!--左右布局，右-->
+				<LeftRightLayoutHeader />
 				<LayoutContent />
 				<LayoutFooter />
 			</ALayout>
@@ -12,13 +17,12 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'BasicLayout',
-	inheritAttrs: false
+	name: 'BasicLayout'
 })
 </script>
 
 <script setup lang="ts">
-import { LayoutHeader } from './header'
+import { TopBottomLayoutHeader, LeftRightLayoutHeader } from './header'
 import { LayoutSider } from './sider'
 import { LayoutContent } from './content'
 import { LayoutFooter } from './footer'

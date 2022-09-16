@@ -37,19 +37,11 @@ import DrawerHeader from './components/DrawerHeader.vue'
 import DrawerContent from './components/DrawerContent.vue'
 import { usePrefixCls } from '@/composables/core/useHtml'
 import { basicDrawerProps, DrawerProps } from './props'
-import { isFunction } from '@/utils/is'
+import { isFunction } from '@/utils'
 const props = defineProps(basicDrawerProps())
-const visibleRef = ref<boolean>(false)
+const visibleRef = ref<boolean>(props.visible)
 const { prefixCls, prefixVar } = usePrefixCls('basic-drawer')
 const emits = defineEmits(['visible-change', 'ok', 'close', 'register'])
-
-watch(
-	() => props.visible,
-	(newVal, oldVal) => {
-		visibleRef.value = newVal
-	},
-	{ deep: true, immediate: true }
-)
 
 const getBindValues = computed((): DrawerProps => {
 	return {
@@ -57,6 +49,10 @@ const getBindValues = computed((): DrawerProps => {
 		visible: unref(visibleRef)
 	}
 })
+
+const onToggle = () => {
+	visibleRef.value = !visibleRef.value
+}
 
 /**
  * footer ok事件
@@ -85,6 +81,8 @@ const onCloseFunc = async () => {
 
 	return false
 }
+
+defineExpose({ onToggle })
 </script>
 
 <style scoped lang="scss"></style>

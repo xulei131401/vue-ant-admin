@@ -1,6 +1,6 @@
 <template>
-	<div :class="getHeaderLeftClass">
-		<AppLogo />
+	<div :class="getClass">
+		<AppLogo v-if="showHeaderAppLogo" :theme="getThemeMode" />
 		<LayoutTriggerSider />
 		<LayoutBreadcrumb />
 	</div>
@@ -17,9 +17,13 @@ import { AppLogo } from '@/components/application'
 import { LayoutTriggerSider } from '@/layouts/default/trigger'
 import { LayoutBreadcrumb } from '../index'
 import { usePrefixCls } from '@/composables/core/useHtml'
+import { useHeaderConfig } from '@/composables/config/useHeaderConfig'
+import { useAppConfig } from '@/composables/config/useAppConfig'
 
 const { prefixCls } = usePrefixCls('layout-header-left')
-const getHeaderLeftClass = computed(() => {
+const { showHeaderAppLogo } = useHeaderConfig()
+const { getThemeMode } = useAppConfig()
+const getClass = computed(() => {
 	return [prefixCls]
 })
 </script>

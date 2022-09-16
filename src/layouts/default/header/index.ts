@@ -1,2 +1,3 @@
-import LayoutHeader from './src/index.vue'
-export { LayoutHeader }
+import TopBottomLayoutHeader from './src/components/top-bottom-header/index.vue'
+import LeftRightLayoutHeader from './src/components/left-right-header/index.vue'
+export { TopBottomLayoutHeader, LeftRightLayoutHeader }

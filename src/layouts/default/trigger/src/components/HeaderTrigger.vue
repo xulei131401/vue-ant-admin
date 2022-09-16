@@ -1,5 +1,5 @@
 <template>
-	<div :class="getTriggerClass" @click.stop="toggleCollapsed">
+	<div :class="getTriggerClass" @click.stop="onCollapsed">
 		<MenuUnfoldOutlined v-if="getCollapsed" />
 		<MenuFoldOutlined v-else />
 	</div>
@@ -13,9 +13,9 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { usePrefixCls } from '@/composables/core/useHtml'
-import { useMenuConfig } from '@/configs/menu/useMenuConfig'
+import { useSiderConfig } from '@/composables/config/useSiderConfig'
 
-const { getCollapsed, toggleCollapsed } = useMenuConfig()
+const { getCollapsed, onCollapsed } = useSiderConfig()
 const { prefixCls } = usePrefixCls('layout-header-trigger')
 const getTriggerClass = computed(() => {
 	return [prefixCls]

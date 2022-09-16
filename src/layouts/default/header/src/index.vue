@@ -1,5 +1,5 @@
 <template>
-	<ALayoutHeader :class="getHeaderClass">
+	<ALayoutHeader :class="getClass">
 		<HeaderLeft />
 		<HeaderCenter />
 		<HeaderRight />
@@ -8,8 +8,7 @@
 
 <script lang="ts">
 export default defineComponent({
-	name: 'LayoutHeader',
-	inheritAttrs: false
+	name: 'LayoutHeader'
 })
 </script>
 
@@ -17,7 +16,7 @@ export default defineComponent({
 import { HeaderLeft, HeaderCenter, HeaderRight } from './components'
 import { usePrefixCls } from '@/composables/core/useHtml'
 const { prefixCls } = usePrefixCls('layout-header')
-const getHeaderClass = computed(() => {
+const getClass = computed(() => {
 	return [
 		prefixCls,
 		{

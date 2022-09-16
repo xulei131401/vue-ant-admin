@@ -3,7 +3,8 @@ import { createContext, useContext } from '@/composables/core/useContext'
 
 import { log } from '@/utils/logx'
 import type { TLog } from '@/utils/logx'
-import { htmlClassPrefixCls } from '@/configs'
+import { htmlClassPrefixCls } from '@/configs/mix'
+
 interface AppProviderContextProps {
 	prefixCls: string // 样式前缀
 	log: TLog

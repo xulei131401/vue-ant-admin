@@ -1,5 +1,5 @@
 <template>
-	<AConfigProvider :locale="locale">
+	<AConfigProvider :locale="getAntdLocale">
 		<AppProvider>
 			<RouterView />
 		</AppProvider>
@@ -8,12 +8,8 @@
 
 <script setup lang="ts">
 import { AppProvider } from '@/components/application'
-import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import dayjs from 'dayjs'
-import 'dayjs/locale/zh-cn'
-dayjs.locale('zh-cn')
-
-const locale = zhCN
+import { useLocale } from './composables/core/useLocale'
+const { getAntdLocale } = useLocale()
 </script>
 
 <style>

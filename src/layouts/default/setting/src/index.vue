@@ -1,7 +1,7 @@
 <template>
-	<div @click="openDrawer(true)">
+	<div @click="onClickDrawer">
 		<AntIcon name="SettingOutlined" :size="16" />
-		<SettingDrawer />
+		<SettingDrawer ref="settingDrawerRef" />
 	</div>
 </template>
 <script lang="ts">
@@ -13,6 +13,11 @@ export default defineComponent({
 <script setup lang="ts">
 import AntIcon from '@/components/icon/src/components/AntIcon.vue'
 import SettingDrawer from './components/SettingDrawer.vue'
+
+const settingDrawerRef = ref()
+const onClickDrawer = () => {
+	settingDrawerRef.value.onClickDrawer()
+}
 </script>
 
 <style scoped lang="scss"></style>
