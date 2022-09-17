@@ -3,18 +3,14 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'CustomIcon',
-	inheritAttrs: false
+	name: 'CustomIcon'
 })
 </script>
 
 <script setup lang="ts">
 import SvgIcon from './SvgIcon.vue'
 defineProps({
-	name: {
-		type: String,
-		required: true
-	}
+	name: { type: String, required: true }
 })
 </script>
 

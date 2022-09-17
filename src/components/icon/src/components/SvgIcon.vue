@@ -5,8 +5,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'SvgIcon',
-	inheritAttrs: false
+	name: 'SvgIcon'
 })
 </script>
 
@@ -19,7 +18,7 @@ const { prefixCls } = usePrefixCls('svg-icon')
 const props = defineProps(svgIconProps())
 
 const symbolId = computed(() => {
-	const part = [props.prefix, props.name].join('-')
+	const part = [props.prefix, props.name].filter((item) => item).join('-')
 	return `#${part}`
 })
 

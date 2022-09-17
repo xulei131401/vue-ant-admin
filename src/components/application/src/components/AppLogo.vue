@@ -13,14 +13,14 @@ export default defineComponent({
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { usePrefixCls } from '@/composables/core/useHtml'
-import { ThemeMode } from '@/enums/themeEnum'
+import { Theme } from '@/enums/themeEnum'
 import { HOME_ROUTE } from '@/router/constant'
 import { useGo } from '@/composables/core/usePage'
 
 const { go } = useGo()
 const { prefixCls } = usePrefixCls('app-logo')
 const props = defineProps({
-	theme: { type: String as PropType<ThemeMode> }
+	theme: { type: String as PropType<Theme> }
 })
 
 const getClass = computed(() => {

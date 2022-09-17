@@ -1,9 +1,9 @@
-import { ThemeMode, ThemeModeEnum } from '@/enums/themeEnum'
+import { Theme, ThemeEnum } from '@/enums/themeEnum'
 
 export interface ThemeConfig {
-	theme: ThemeMode
+	theme: Theme
 }
 
 export const defaultThemeConfig: ThemeConfig = {
-	theme: ThemeModeEnum.LIGHT
+	theme: ThemeEnum.LIGHT
 }

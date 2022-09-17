@@ -1,8 +1,11 @@
 import { withInstall } from '@/utils'
-import appLogo from './src/AppLogo.vue'
-import appProvider from './src/AppProvider.vue'
-import appLocalePicker from './src/AppLocalePicker.vue'
-export * from './src/useAppContext'
+import appLogo from './src/components/AppLogo.vue'
+import appProvider from './src/components/AppProvider.vue'
+import appLocalePicker from './src/components/AppLocalePicker.vue'
+import appThemeSwitch from './src/components/AppThemeSwitch.vue'
+
+export * from './src/composables/useAppContext'
 export const AppLogo = withInstall(appLogo)
 export const AppProvider = withInstall(appProvider)
 export const AppLocalePicker = withInstall(appLocalePicker)
+export const AppThemeSwitch = withInstall(appThemeSwitch)

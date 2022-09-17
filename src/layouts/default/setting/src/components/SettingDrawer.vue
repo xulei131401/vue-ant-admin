@@ -1,7 +1,7 @@
 <template>
 	<BasicDrawer v-bind="basicProps" ref="basicDrawerRef">
-		<ADivider>{{ $t('layout.config.themeMode') }}</ADivider>
-
+		<ADivider>{{ $t('layout.config.theme') }}</ADivider>
+		<AppThemeSwitch />
 		<ADivider>{{ $t('layout.config.layoutMode') }}</ADivider>
 		<LayoutModePick :items="LayoutModeList" :mode="getLayoutMode" :handler="onClickLayoutMode" />
 
@@ -18,7 +18,8 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import BasicDrawer from '@/components/drawer/src/BasicDrawer.vue'
+import { BasicDrawer } from '@/components/drawer'
+import { AppThemeSwitch } from '@/components/application'
 import LayoutModePick from './layout-mode/index.vue'
 import SwitchItem from './switch-item/index.vue'
 import { useLayoutMode } from './layout-mode/useLayoutMode'

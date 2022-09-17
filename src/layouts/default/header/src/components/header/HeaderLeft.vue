@@ -1,14 +1,13 @@
 <template>
 	<div :class="getClass">
-		<AppLogo v-if="showHeaderAppLogo" :theme="getThemeMode" />
+		<AppLogo v-if="showHeaderAppLogo" :theme="getTheme" />
 		<LayoutTriggerSider />
 		<LayoutBreadcrumb />
 	</div>
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'XHeaderLeft',
-	inheritAttrs: false
+	name: 'HeaderLeft'
 })
 </script>
 
@@ -22,7 +21,7 @@ import { useAppConfig } from '@/composables/config/useAppConfig'
 
 const { prefixCls } = usePrefixCls('layout-header-left')
 const { showHeaderAppLogo } = useHeaderConfig()
-const { getThemeMode } = useAppConfig()
+const { getTheme } = useAppConfig()
 const getClass = computed(() => {
 	return [prefixCls]
 })

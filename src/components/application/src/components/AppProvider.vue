@@ -9,7 +9,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { createDefaultAppProviderContext } from './useAppContext'
+import { createDefaultAppProviderContext } from '../composables/useAppContext'
 createDefaultAppProviderContext()
 </script>
 

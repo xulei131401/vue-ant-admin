@@ -1,1 +1,1 @@
-export const APP_THEME_MODE_KEY_ = '__APP__THEME__MODE__'
+export const APP_THEME_MODE_KEY = '__APP__THEME__'

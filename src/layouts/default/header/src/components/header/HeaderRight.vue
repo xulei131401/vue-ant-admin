@@ -8,8 +8,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'HeaderRight',
-	inheritAttrs: false
+	name: 'HeaderRight'
 })
 </script>
 
@@ -22,10 +21,10 @@ import { usePrefixCls } from '@/composables/core/useHtml'
 import { useAppConfig } from '@/composables/config/useAppConfig'
 
 const { prefixCls } = usePrefixCls('layout-header-right')
-const { getThemeMode } = useAppConfig()
+const { getTheme } = useAppConfig()
 
 const getClass = computed(() => {
-	const theme = unref(getThemeMode)
+	const theme = unref(getTheme)
 	return [
 		prefixCls,
 		{

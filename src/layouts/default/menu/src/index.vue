@@ -1,7 +1,7 @@
 <template>
 	<div :class="prefixCls">
 		<div :class="getDomStyle" v-if="!showSiderAppLogo"></div>
-		<AppLogo v-if="showSiderAppLogo" :theme="getThemeMode" />
+		<AppLogo v-if="showSiderAppLogo" :theme="getTheme" />
 		<BasicMenu :items="menusRef" />
 	</div>
 </template>
@@ -20,7 +20,7 @@ import { useHeaderConfig } from '@/composables/config/useHeaderConfig'
 import { useAppConfig } from '@/composables/config/useAppConfig'
 
 const { menusRef } = useLayoutMenu()
-const { getThemeMode } = useAppConfig()
+const { getTheme } = useAppConfig()
 const { showSiderAppLogo } = useHeaderConfig()
 const { prefixCls } = usePrefixCls('layout-menu')
 

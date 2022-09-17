@@ -1,13 +1,13 @@
 import { useAppStore } from '@/store/modules/app'
+import { ThemeEnum } from '@/enums/themeEnum'
 import type { AppConfig } from '@/configs'
-import { ThemeModeEnum } from '@/enums/themeEnum'
 
 export function useAppConfig() {
 	const appStore = useAppStore()
 
-	const getThemeMode = computed(() => appStore.getThemeMode)
-	const isDarkTheme = computed(() => getThemeMode.value === ThemeModeEnum.DARK)
-
+	const getTheme = computed(() => appStore.getTheme)
+	const isDarkTheme = computed(() => unref(getTheme) === ThemeEnum.DARK)
+	const isLightTheme = computed(() => unref(getTheme) === ThemeEnum.LIGHT)
 	const getLayoutMode = computed(() => {
 		const { mode } = appStore.getLayoutConfig
 		return mode
@@ -17,9 +17,17 @@ export function useAppConfig() {
 		appStore.setAppConfig(setting)
 	}
 
-	const setThemeMode = (mode: ThemeModeEnum) => {
-		appStore.setThemeMode(mode)
+	const setTheme = (mode: ThemeEnum) => {
+		appStore.setTheme(mode)
 	}
 
-	return { getThemeMode, getLayoutMode, isDarkTheme, setAppConfig, setThemeMode }
+	const switchTheme = () => {
+		if (unref(isDarkTheme)) {
+			setTheme(ThemeEnum.LIGHT)
+		} else if (unref(isLightTheme)) {
+			setTheme(ThemeEnum.DARK)
+		}
+	}
+
+	return { getTheme, getLayoutMode, switchTheme, isLightTheme, isDarkTheme, setAppConfig, setTheme }
 }
