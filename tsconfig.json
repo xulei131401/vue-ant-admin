@@ -6,9 +6,10 @@
     "moduleResolution": "node",
 		"forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-		// "noUnusedLocals": true,
-    // "noUnusedParameters": true,
+		"noUnusedLocals": true,
+    "noUnusedParameters": true,
     "experimentalDecorators": true,
+		"strictNullChecks": true,
     "strict": true,
     "jsx": "preserve",
 		"allowJs": true,
@@ -24,7 +25,7 @@
 		"removeComments": true,
     "paths": {
       "@/*": ["src/*"],
-			"#/*": ["types/*"]
+			"#/*": ["typing/*"]
     }
   },
   "include": [
@@ -32,10 +33,10 @@
 		"src/**/*.d.ts",
 		"src/**/*.tsx",
 		"src/**/*.vue",
-		"types/**/*.d.ts",
-    "types/**/*.ts",
+		"typing/**/*.d.ts",
+    "typing/**/*.ts",
 		"vite.config.ts"
-	],
+, "route.ts"	],
 	"exclude": ["node_modules", "dist", "**/*.js", "tests/server/**/*.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

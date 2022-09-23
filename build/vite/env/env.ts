@@ -1,6 +1,6 @@
 import { loadEnv, ConfigEnv } from 'vite'
 
-export interface ViteEnv {
+export type ViteEnv = {
 	VITE_PORT: number
 }
 

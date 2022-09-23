@@ -8,7 +8,7 @@
 		"vite.config.ts",
 		"build/**/*.ts",
 		"build/**/*.d.ts",
-		"types/**/*.d.ts",
-    "types/**/*.ts"
+		"typing/**/*.d.ts",
+    "typing/**/*.ts"
 	]
 }

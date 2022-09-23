@@ -17,7 +17,7 @@ export function createVitePlugins(viteEnv: any) {
 	vitePlugins.push(
 		AutoImport({
 			imports: ['vue', 'vue-router', 'pinia', 'vue-i18n'], // 自动导入vue和vue-router相关函数
-			dts: 'types/auto-import.d.ts' // 生成 `auto-import.d.ts` 全局声明
+			dts: 'typing/auto-import.d.ts' // 生成 `auto-import.d.ts` 全局声明
 		})
 	)
 
