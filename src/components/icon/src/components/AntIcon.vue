@@ -9,9 +9,9 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { PropType } from 'vue'
 import * as antIcons from '@ant-design/icons-vue'
-import { PropType, CSSProperties } from 'vue'
-import { isString } from '@/utils/is'
+import { isString } from '@/utils'
 
 const props = defineProps({
 	name: { type: String, required: true },
@@ -23,7 +23,7 @@ const props = defineProps({
 	}
 })
 
-const getStyle = computed((): CSSProperties => {
+const getStyle = computed(() => {
 	const { size, color } = props
 	let sizeNumber = size
 	if (isString(size)) {

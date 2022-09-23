@@ -17,13 +17,13 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'ModalClose',
-	inheritAttrs: false
+	name: 'ModalClose'
 })
 </script>
 
 <script setup lang="ts">
 import { usePrefixCls } from '@/composables/core/useHtml'
+import { prefixClsStyle } from '@/style/module'
 
 const props = defineProps({
 	canFullscreen: { type: Boolean, default: true },
@@ -32,7 +32,7 @@ const props = defineProps({
 
 const emits = defineEmits(['cancel', 'fullscreen'])
 
-const { prefixCls } = usePrefixCls('modal-close')
+const { prefixCls } = usePrefixCls(prefixClsStyle.modalClose)
 
 const getClass = computed(() => {
 	return [
@@ -56,5 +56,44 @@ const onFullScreen = (e: Event) => {
 </script>
 
 <style scoped lang="scss">
-@import '@/style/components/modal/modal-close.scss';
+// TODO: 等待日后完善样式
+.#{$prefix-cls-modal-close} {
+	display: flex;
+	height: 95%;
+	align-items: center;
+
+	> span {
+		margin-left: 10px;
+		font-size: 16px;
+	}
+
+	// &--can-full {
+	// 	> span {
+	// 		margin-left: 8px;
+	// 	}
+	// }
+
+	// &:not(&--can-full) {
+	// 	> span:nth-child(1) {
+	// 		&:hover {
+	// 			font-weight: 700;
+	// 		}
+	// 	}
+	// }
+
+	// & span:nth-child(1) {
+	// 	display: inline-block;
+	// 	padding: 10px;
+
+	// 	&:hover {
+	// 		color: $primary-color;
+	// 	}
+	// }
+
+	// & span:last-child {
+	// 	&:hover {
+	// 		color: $error-color;
+	// 	}
+	// }
+}
 </style>

@@ -1,2 +1,2 @@
-import LayoutContent from './src/index.vue'
-export { LayoutContent }
+import layoutContent from './src/components/index.vue'
+export const LayoutContent = layoutContent

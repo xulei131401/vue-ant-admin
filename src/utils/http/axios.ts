@@ -1,7 +1,7 @@
 import { message } from 'ant-design-vue'
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { RequestResponse, RequestOption, ApiInfo } from './typing'
-import { timeSleep } from '@/utils/mix'
+import { timeSleep } from '@/utils'
 
 class AxiosRequest {
 	public readonly instance: AxiosInstance

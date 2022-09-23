@@ -1,14 +1,14 @@
 <template>
 	<ALayout :class="prefixCls">
 		<!--上下布局，上-->
-		<TopBottomLayoutHeader />
+		<LayoutHeader :mode="LayoutMode.TOP_BOTTOM_LAYOUT" />
 		<!--上下布局，下-->
 		<ALayout :class="layoutClass">
 			<!--左右布局，左-->
 			<LayoutSider />
 			<ALayout>
 				<!--左右布局，右-->
-				<LeftRightLayoutHeader />
+				<LayoutHeader :mode="LayoutMode.LEFT_RIGHT_LAYOUT" />
 				<LayoutContent />
 				<LayoutFooter />
 			</ALayout>
@@ -22,13 +22,15 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { TopBottomLayoutHeader, LeftRightLayoutHeader } from './header'
-import { LayoutSider } from './sider'
-import { LayoutContent } from './content'
-import { LayoutFooter } from './footer'
+import { LayoutHeader } from '@/layouts/default/header'
+import { LayoutSider } from '@/layouts/default/sider'
+import { LayoutContent } from '@/layouts/default/content'
+import { LayoutFooter } from '@/layouts/default/footer'
 import { usePrefixCls } from '@/composables/core/useHtml'
+import { prefixClsStyle } from '@/style/module'
+import { LayoutMode } from '@/enums'
 
-const { prefixCls } = usePrefixCls('default-layout')
+const { prefixCls } = usePrefixCls(prefixClsStyle.layout)
 const layoutClass = computed(() => {
 	let cls: string[] = ['ant-layout']
 	cls.push('ant-layout-has-sider')
@@ -37,5 +39,12 @@ const layoutClass = computed(() => {
 </script>
 
 <style scoped lang="scss">
-@import '@/style/layouts/index.scss';
+.#{$prefix-cls-layout} {
+	width: 100%;
+	min-height: 100%;
+
+	> .ant-layout {
+		min-height: 100%;
+	}
+}
 </style>

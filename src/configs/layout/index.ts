@@ -1,4 +1,4 @@
-import { LayoutMode, LayoutModeEnum } from '@/enums/layoutEnum'
+import { LayoutMode } from '@/enums'
 import { defaultHeaderConfig, HeaderConfig } from './header'
 import { defaultMenuConfig, MenuConfig } from './menu'
 import { defaultThemeConfig, ThemeConfig } from './theme'
@@ -7,19 +7,22 @@ import { defaultSiderConfig, SiderConfig } from './sider'
 export * from './menu'
 export * from './header'
 export * from './theme'
+export * from './sider'
 
-export interface LayoutConfig {
+export type LayoutConfig = {
 	mode: LayoutMode
+	theme: ThemeConfig
+	grayMode: boolean
 	menu: MenuConfig
 	header: HeaderConfig
-	theme: ThemeConfig
 	sider: SiderConfig
 }
 
 export const defaultLayoutConfig: LayoutConfig = {
-	mode: LayoutModeEnum.TOP_BOTTOM_LAYOUT,
+	mode: LayoutMode.TOP_BOTTOM_LAYOUT,
+	grayMode: false,
+	theme: defaultThemeConfig,
 	menu: defaultMenuConfig,
 	header: defaultHeaderConfig,
-	theme: defaultThemeConfig,
 	sider: defaultSiderConfig
 }

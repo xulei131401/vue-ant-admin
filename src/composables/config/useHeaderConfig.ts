@@ -1,25 +1,37 @@
-import { useAppStore } from '@/store/modules/app'
+import { useAppStore } from '@/store/app'
+import { RootCssProperties, Theme } from '@/enums'
+import { DARK_COLOR, LIGHT_COLOR } from '@/constant'
+import { setCssVar } from '@/utils'
 
 export function useHeaderConfig() {
 	const appStore = useAppStore()
-
 	const getFixed = computed(() => appStore.getHeaderConfig.fixed)
+	const getHeaderTheme = computed(() => appStore.getHeaderConfig.theme)
+	const getHeaderBgColor = computed(() => appStore.getHeaderConfig.bgColor)
+	const isDarkTheme = computed(() => unref(getHeaderTheme) === Theme.DARK)
+	const isLightTheme = computed(() => unref(getHeaderTheme) === Theme.LIGHT)
 
-	const showLeftRightLayoutHeader = computed(() => {
-		return appStore.isLeftRightLayoutMode
-	})
+	const setHeaderTheme = (theme: Theme) => {
+		appStore.setHeaderTheme(theme)
+		updateHeaderBgColor()
+	}
 
-	const showTopBottomLayoutHeader = computed(() => {
-		return appStore.isTopBottomLayoutMode
-	})
+	const updateHeaderBgColor = (bgColor?: string) => {
+		if (!bgColor) {
+			bgColor = unref(isDarkTheme) ? DARK_COLOR : LIGHT_COLOR
+		}
 
-	const showHeaderAppLogo = computed(() => {
-		return unref(showTopBottomLayoutHeader)
-	})
+		appStore.setHeaderBgColor(bgColor)
+		setCssVar(RootCssProperties.HEADER_BG_COLOR_VAR, bgColor)
+	}
 
-	const showSiderAppLogo = computed(() => {
-		return unref(showLeftRightLayoutHeader)
-	})
-
-	return { getFixed, showLeftRightLayoutHeader, showTopBottomLayoutHeader, showSiderAppLogo, showHeaderAppLogo }
+	return {
+		getFixed,
+		getHeaderTheme,
+		getHeaderBgColor,
+		isDarkTheme,
+		isLightTheme,
+		setHeaderTheme,
+		updateHeaderBgColor
+	}
 }

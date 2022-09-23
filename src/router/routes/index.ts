@@ -1,22 +1,14 @@
-import { RouteRecordRaw } from 'vue-router'
-import { LOGIN_ROUTE, ROOT_ROUTE, HOME_ROUTE } from '@/router/constant'
-import { LOGIN_COMPONENT } from '@/router/components'
-import { PageNotFoundRoute } from '@/router/routes/basic'
+import { AppRouteRecordRaw } from '@/typing'
 
-export const RootRoute: RouteRecordRaw = {
-	name: ROOT_ROUTE.name,
-	path: ROOT_ROUTE.path,
-	redirect: HOME_ROUTE.path,
-	meta: { title: '根路径' }
+export { basicRoutes } from './base'
+
+export async function loadAsyncRoutes() {
+	const asyncRoutes: AppRouteRecordRaw[] = []
+	const modules = import.meta.glob('./demo/**/*.ts')
+	for (const key of Object.keys(modules)) {
+		const mod = (<any>await modules[key]()).default
+		asyncRoutes.push(mod)
+	}
+
+	return asyncRoutes
 }
-
-export const LoginRoute: RouteRecordRaw = {
-	name: LOGIN_ROUTE.name,
-	path: LOGIN_ROUTE.path,
-	component: LOGIN_COMPONENT,
-	meta: { title: '登录页面' }
-}
-
-export const basicRoutes = [RootRoute, LoginRoute, PageNotFoundRoute]
-
-export * from './modules'

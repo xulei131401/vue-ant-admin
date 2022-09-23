@@ -1,9 +1,10 @@
 import { API_INFO_MY_INFO } from '@/apis/actions/apiDescription'
 import axiosInstance from '@/utils/http/axios'
-import { RequestOption } from '@/utils/http/typing'
-import { UserInfo } from '@/models/user/user'
+import { getDevRequestOptions } from '@/apis/mocks'
+import { UserInfo } from '@/typing/user'
 
-export const myInfoAction = async (option?: RequestOption): Promise<UserInfo> => {
-    const res = await axiosInstance.request(API_INFO_MY_INFO, {}, option)
-    return res
+export const myInfoAction = async (): Promise<UserInfo> => {
+	const option = getDevRequestOptions()
+	const res = await axiosInstance.request(API_INFO_MY_INFO, {}, option)
+	return res
 }

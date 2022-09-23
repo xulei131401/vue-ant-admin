@@ -1,4 +1,4 @@
-import type { App, Plugin, Component } from 'vue'
+import { type App, type Plugin, type Component } from 'vue'
 /**
  * 通用组件全局安装函数
  * @param component

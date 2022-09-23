@@ -10,11 +10,12 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import type { CSSProperties } from 'vue'
-import { usePrefixCls } from '@/composables/core/useHtml'
+import { type CSSProperties } from 'vue'
 import { svgIconProps } from './svgIconProps'
+import { usePrefixCls } from '@/composables/core/useHtml'
+import { prefixClsStyle } from '@/style/module'
 
-const { prefixCls } = usePrefixCls('svg-icon')
+const { prefixCls } = usePrefixCls(prefixClsStyle.svgIcon)
 const props = defineProps(svgIconProps())
 
 const symbolId = computed(() => {
@@ -34,5 +35,15 @@ const getStyle = computed((): CSSProperties => {
 </script>
 
 <style scoped lang="scss">
-@import '@/style/components/icon/svg-icon.scss';
+// TODO: 等待日后完善样式
+.#{$prefix-cls-svg-icon} {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: -0.15em;
+	fill: currentColor;
+
+	.svg-icon-spin {
+		animation: loadingCircle 1s infinite linear;
+	}
+}
 </style>

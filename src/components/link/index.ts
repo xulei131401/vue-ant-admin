@@ -1,4 +1,4 @@
 import { withInstall } from '@/utils'
-import Link from './src/Link.vue'
-
-export default withInstall(Link)
+import link from './src/components/index.vue'
+export * from './src/typing'
+export const Link = withInstall(link)

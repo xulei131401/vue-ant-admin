@@ -5,8 +5,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'ModalHeader',
-	inheritAttrs: false
+	name: 'ModalHeader'
 })
 </script>
 

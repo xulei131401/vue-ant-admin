@@ -20,13 +20,12 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'ModalFooter',
-	inheritAttrs: false
+	name: 'ModalFooter'
 })
 </script>
 
 <script setup lang="ts">
-import { basicProps } from '../props'
+import { basicProps } from '../typing'
 defineProps(basicProps())
 
 const emits = defineEmits(['ok', 'cancel'])

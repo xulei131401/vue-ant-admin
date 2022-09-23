@@ -1,5 +1,6 @@
 import { withInstall } from '@/utils'
-import Table from './src/Table.vue'
-export * from './src/tableProps'
+import basicTable from './src/components/index.vue'
+export * from './src/typing'
+export * from './src/composables'
 
-export default withInstall(Table)
+export const BasicTable = withInstall(basicTable)

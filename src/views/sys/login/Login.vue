@@ -19,12 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import type { FormInstance } from 'ant-design-vue'
+import { type FormInstance } from 'ant-design-vue'
 import { message } from 'ant-design-vue'
-import type { Rule } from 'ant-design-vue/es/form'
-import { useUserStore } from '@/store/modules/user'
+import { type Rule } from 'ant-design-vue/es/form'
+import { useUserStore } from '@/store/user'
 
-const { login: loginAction } = useUserStore()
+const userStore = useUserStore()
 const layout = {
 	labelCol: { span: 10 },
 	wrapperCol: { span: 4 }
@@ -76,13 +76,13 @@ const onLogin = async () => {
 
 // 表单验证
 const onCheck = async () => {
-	const values = await formRef.value?.validateFields().catch((e) => {
+	await formRef.value?.validateFields().catch((e) => {
 		message.error('表单校验失败，请检查参数')
 	})
 }
 
 const login = async () => {
-	await loginAction()
+	await userStore.login()
 	message.success('登录成功')
 }
 </script>

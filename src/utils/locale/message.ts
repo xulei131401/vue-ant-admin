@@ -1,7 +1,7 @@
 import { getAntdLocales } from './antdLocale'
 import { getDayJsLocales } from './dayJsLocale'
 import { LocaleEnum, LocaleType } from './typing'
-import { isEmpty } from '@/utils/is'
+import { isEmpty } from '@/utils'
 
 /**
  * 统一导入多语言配置内容,支持的文件格式有ts,json,yaml
@@ -15,9 +15,9 @@ export async function loadLocaleMessages(locale: LocaleType) {
 
 	let modules: Record<string, any> = {}
 	if (locale === LocaleEnum.ZH_CN) {
-		modules = await import.meta.glob(['@/locales/zh-CN/**/*.ts', '@/locales/zh-CN/**/*.json', '@/locales/zh-CN/**/*.yaml'])
+		modules = import.meta.glob(['@/locales/zh-CN/**/*.ts', '@/locales/zh-CN/**/*.json', '@/locales/zh-CN/**/*.yaml'])
 	} else if (locale === LocaleEnum.EN_US) {
-		modules = await import.meta.glob(['@/locales/en/**/*.ts', '@/locales/en/**/*.json', '@/locales/en/**/*.yaml'])
+		modules = import.meta.glob(['@/locales/en/**/*.ts', '@/locales/en/**/*.json', '@/locales/en/**/*.yaml'])
 	} else {
 		return {}
 	}

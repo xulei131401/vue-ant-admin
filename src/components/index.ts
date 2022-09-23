@@ -1,4 +1,4 @@
-import type { App, Plugin, Component } from 'vue'
+import { type App, type Plugin, type Component } from 'vue'
 
 import * as components from './components'
 export * from './components'

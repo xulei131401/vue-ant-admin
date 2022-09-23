@@ -1,2 +1,2 @@
-import LayoutFooter from './src/index.vue'
-export { LayoutFooter }
+import layoutFooter from './src/components/index.vue'
+export const LayoutFooter = layoutFooter

@@ -1,10 +1,12 @@
 import { API_INFO_MY_MENU } from '@/apis/actions/apiDescription'
 import axiosInstance from '@/utils/http/axios'
-import { RequestOption } from '@/utils/http/typing'
-import { Menu, type MenuType } from '@/models/menu/menu'
+import { RouteStatic, MenuStatic, type Menu } from '@/typing'
+import { getDevRequestOptions } from '@/apis/mocks'
 
-export const myMenuAction = async (option?: RequestOption): Promise<MenuType[]> => {
-    const res = await axiosInstance.request(API_INFO_MY_MENU, {}, option)
-    Menu.initMenu(res)
-    return Menu.menuList
+export const myMenuAction = async (): Promise<Menu[]> => {
+	const option = getDevRequestOptions()
+	const res = await axiosInstance.request(API_INFO_MY_MENU, {}, option)
+	MenuStatic.initMenu(res)
+	RouteStatic.initRoute(res)
+	return MenuStatic.menuList
 }

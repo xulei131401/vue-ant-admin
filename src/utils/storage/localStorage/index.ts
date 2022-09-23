@@ -2,7 +2,7 @@ type UserInfo = {
 	isLogin: boolean
 }
 
-function setLogin() {
+function setLoginCache() {
 	const info: UserInfo = {
 		isLogin: true
 	}
@@ -40,4 +40,4 @@ function isLogin(): boolean {
 // 	}
 // }
 
-export { setLogin, setLogout, isLogin }
+export { setLoginCache, setLogout, isLogin }

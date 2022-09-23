@@ -1,5 +1,5 @@
-import type { MenuType } from '@/models/menu/menu'
-import type { MenuState } from '../props'
+import { type Menu } from '@/typing/menu'
+import { type MenuState } from '../typing'
 import { uniq } from 'lodash-es'
 
 export function useBasicMenu() {
@@ -28,17 +28,10 @@ export function useOpenKeys(menuState: MenuState) {
 	 * SubMenu 展开/关闭的回调
 	 * @param openKeys
 	 */
-	async function onOpenChange(openKeys: string[]) { }
+	async function onOpenChange(openKeys: string[]) {}
 	return { setOpenKeys, resetMenuKeys, onOpenChange }
 }
 
 export function useSelectedKeys(menuState: MenuState) {
-	/**
-	 * 	点击 MenuItem 调用此函数
-	 * @param param
-	 */
-	async function onClickMenu({ key, keyPath }: { key: string; keyPath: string[] }) {
-		console.log(key, keyPath)
-	}
-	return { onClickMenu }
+	return {}
 }

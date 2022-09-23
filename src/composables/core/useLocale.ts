@@ -1,6 +1,6 @@
 import { i18n } from '@/plugins/vue-i18n-plugin'
-import { changeLocale as changeProjectLocale, type LocaleType } from '@/utils/locale'
-import { useLocaleStore } from '@/store/modules/locale'
+import { changeLocale as changeProjectLocale, type LocaleType } from '@/utils'
+import { useLocaleStore } from '@/store/locale'
 
 export function useLocale() {
 	const localeStore = useLocaleStore()

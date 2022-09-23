@@ -14,16 +14,16 @@ export default defineComponent({
 <script setup lang="ts">
 import { BasicTitle } from '@/components/title'
 import { usePrefixCls } from '@/composables/core/useHtml'
-import { drawerHeaderProps } from './drawerHeaderProps'
-defineProps(drawerHeaderProps())
+import { prefixClsStyle } from '@/style/module'
+import { drawerHeaderProps } from '../typing'
 
-const { prefixCls } = usePrefixCls('basic-drawer-header')
+const { prefixCls } = usePrefixCls(prefixClsStyle.basicDrawerHeader)
+defineProps(drawerHeaderProps())
 </script>
 
 <style scoped lang="scss">
-$prefix-cls: '#{$namespace}-basic-drawer-header';
 $footer-height: 60px;
-.#{$prefix-cls} {
+.#{$prefix-cls-basic-drawer-header} {
 	display: flex;
 	height: 100%;
 	align-items: center;

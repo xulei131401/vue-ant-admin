@@ -1,4 +1,5 @@
 import { withInstall } from '@/utils'
-import Modal from './src/BasicModal.vue'
-export * from './src/props'
-export default withInstall(Modal)
+import basicModal from './src/components/index.vue'
+export * from './src/typing'
+export * from './src/composables'
+export const BasicModal = withInstall(basicModal)

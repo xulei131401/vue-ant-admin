@@ -1,11 +1,11 @@
 // 接口传参
-interface LoginActionParameter {
+type LoginActionParameter = {
 	username: string
 	password: string
 }
 
 // 接口返回值适配
-interface LoginActionModel {
+type LoginActionModel = {
 	id: string
 	name: string
 	age: string

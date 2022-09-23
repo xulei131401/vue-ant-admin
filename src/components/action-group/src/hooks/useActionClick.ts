@@ -1,4 +1,4 @@
-import type { ActionClickProps } from '../props/actionClickProps'
+import { type ActionClickProps } from '../props/actionClickProps'
 
 export function useActionClick(props: ActionClickProps) {
 	const onClick = () => {

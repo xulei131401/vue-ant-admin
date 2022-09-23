@@ -1,2 +1,2 @@
-import LayoutTriggerSider from './src/index.vue'
-export { LayoutTriggerSider }
+import layoutTriggerSider from './src/components/index.vue'
+export const LayoutTriggerSider = layoutTriggerSider

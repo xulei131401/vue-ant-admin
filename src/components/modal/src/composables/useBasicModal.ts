@@ -1,5 +1,5 @@
-import { BasicProps } from '../props'
-import { isFunction } from '@/utils/is'
+import { BasicProps } from '../typing/props'
+import { isFunction } from '@/utils'
 import { useFullScreen } from './useModalFullScreen'
 
 export function useBasicModal(props: BasicProps, emits) {

@@ -1,4 +1,4 @@
-import { now } from '@/utils/time'
+import { now } from '@/utils'
 
 type TLog = (msg?: any, msg2?: any, msg3?: any) => void
 

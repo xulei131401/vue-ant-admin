@@ -5,9 +5,8 @@ import { LayoutConfig, defaultLayoutConfig } from './layout'
 export * from './layout'
 export * from './locale'
 export * from './mix'
-export * from './layout/theme'
 
-export interface AppConfig {
+export type AppConfig = {
 	mix: MixConfig
 	layout: LayoutConfig
 	locale: LocaleConfig

@@ -1,11 +1,14 @@
-import { Theme, ThemeEnum } from '@/enums/themeEnum'
+import { LIGHT_COLOR } from '@/constant'
+import { Theme } from '@/enums'
 
-export interface HeaderConfig {
-    fixed: boolean
-    theme: Theme
+export type HeaderConfig = {
+	theme: Theme
+	fixed: boolean
+	bgColor: string
 }
 
 export const defaultHeaderConfig: HeaderConfig = {
-    fixed: true, // 是否固定
-    theme: ThemeEnum.LIGHT
+	theme: Theme.LIGHT, // 主题
+	bgColor: LIGHT_COLOR, // 背景色
+	fixed: true // 是否固定
 }

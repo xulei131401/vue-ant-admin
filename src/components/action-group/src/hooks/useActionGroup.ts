@@ -1,4 +1,4 @@
-import type { ActionGroupProps } from '../actionGroupProps'
+import { type ActionGroupProps } from '../actionGroupProps'
 
 export function useActionGroup(props: ActionGroupProps) {
 	const xActions = props.actions ?? []

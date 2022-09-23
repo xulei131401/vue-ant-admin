@@ -6,22 +6,32 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'HeaderTrigger',
-	inheritAttrs: false
+	name: 'HeaderTrigger'
 })
 </script>
 
 <script setup lang="ts">
 import { usePrefixCls } from '@/composables/core/useHtml'
+import { prefixClsStyle } from '@/style/module'
 import { useSiderConfig } from '@/composables/config/useSiderConfig'
 
 const { getCollapsed, onCollapsed } = useSiderConfig()
-const { prefixCls } = usePrefixCls('layout-header-trigger')
+const { prefixCls } = usePrefixCls(prefixClsStyle.layoutHeaderTrigger)
 const getTriggerClass = computed(() => {
 	return [prefixCls]
 })
 </script>
 
 <style scoped lang="scss">
-@import '@/style/layouts/trigger/header-trigger.scss';
+.#{$prefix-cls-layout-header-trigger} {
+	display: flex;
+	height: 100%;
+	padding: 1px 10px 0;
+	cursor: pointer;
+	align-items: center;
+
+	.anticon {
+		font-size: 16px;
+	}
+}
 </style>

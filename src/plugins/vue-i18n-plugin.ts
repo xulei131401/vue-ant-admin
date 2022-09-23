@@ -1,6 +1,6 @@
-import type { App } from 'vue'
+import { type App } from 'vue'
 import { I18n } from 'vue-i18n'
-import { createVueI18n } from '@/utils/locale'
+import { createVueI18n } from '@/utils'
 
 export let i18n: I18n
 

@@ -1,2 +1,2 @@
-import LayoutSider from './src/index.vue'
-export { LayoutSider }
+import layoutSider from './src/components/index.vue'
+export const LayoutSider = layoutSider

@@ -1,15 +1,14 @@
-import { usePermissionStore } from '@/store/modules/permission'
-import { MenuType } from '@/models/menu/menu'
-import { menus } from '@/mocks/menu'
+import { usePermissionStore } from '@/store/permission'
+import { type Menu } from '@/typing/menu'
 
 export function useLayoutMenu() {
-	const menusRef = ref<MenuType[]>([])
+	const menusRef = ref<Menu[]>([])
 
 	const permissionStore = usePermissionStore()
 	watch(
-		[() => permissionStore.getBackMenuList],
+		[() => permissionStore.getMenuList],
 		() => {
-			menusRef.value = permissionStore.getBackMenuList
+			menusRef.value = permissionStore.getMenuList
 		},
 		{
 			deep: true,

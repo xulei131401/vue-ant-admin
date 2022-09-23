@@ -1,5 +1,5 @@
-import type { ExtractPropTypes, PropType } from 'vue'
-import type { Action } from '../actionGroupProps'
+import { type ExtractPropTypes, type PropType } from 'vue'
+import { type Action } from '../actionGroupProps'
 
 export const actionClickProps = () => ({
 	action: { type: Object as PropType<Action>, default: {} },

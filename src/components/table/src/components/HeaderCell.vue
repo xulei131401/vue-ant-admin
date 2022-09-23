@@ -3,8 +3,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'XHeaderCell',
-	inheritAttrs: false
+	name: 'HeaderCell'
 })
 </script>
 

@@ -1,7 +1,7 @@
-import { LocaleType, LocaleEnum } from '@/utils/locale'
-import type { DropMenu } from '@/components/dropdown'
+import { type LocaleType, LocaleEnum } from '@/utils'
+import { type DropMenu } from '@/components/dropdown'
 
-export interface LocaleConfig {
+export type LocaleConfig = {
 	locale: LocaleType
 	fallback: LocaleType
 	availableLocales: LocaleType[]

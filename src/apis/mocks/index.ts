@@ -1,3 +1,6 @@
+import { isDevMode } from '@/utils'
+import { RequestOption } from '@/utils/http/typing'
+
 export const aliasToMockUrl = (url: string) => {
 	if (!url) {
 		return ''
@@ -7,4 +10,14 @@ export const aliasToMockUrl = (url: string) => {
 	const mockUrl = new URL(url.replace('@/', '../../'), import.meta.url).href
 	// console.log('mockUrl:', mockUrl)
 	return mockUrl
+}
+
+export const getDevRequestOptions = (): RequestOption => {
+	if (!isDevMode()) {
+		return {}
+	}
+
+	return {
+		isMock: true
+	}
 }

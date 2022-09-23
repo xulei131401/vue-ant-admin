@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { AppProvider } from '@/components/application'
+import { AppProvider } from '@/layouts/default/app'
 import { useLocale } from './composables/core/useLocale'
 const { getAntdLocale } = useLocale()
 </script>

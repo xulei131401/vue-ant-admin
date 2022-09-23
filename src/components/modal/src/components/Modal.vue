@@ -8,13 +8,12 @@
 
 <script lang="ts">
 export default defineComponent({
-	name: 'Modal',
-	inheritAttrs: false
+	name: 'Modal'
 })
 </script>
 
 <script setup lang="ts">
-import { modalProps } from './modalProps'
+import { modalProps } from '../typing/modalProps'
 const props = defineProps(modalProps())
 const emits = defineEmits(['cancel', 'ok'])
 

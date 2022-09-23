@@ -1,4 +1,4 @@
-import type { TabPane } from '@/business/menu/tabPane'
+import { type TabPane } from '@/business/menu/tabPane'
 
 // 定义所有的跨组件调用事件
 type Events = {

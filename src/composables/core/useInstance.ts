@@ -1,5 +1,5 @@
 import { Ref } from 'vue'
-import { error } from '@/utils/error'
+import { error } from '@/utils'
 
 export const getInstance = (customRef: Ref) => {
 	const instance = unref(customRef)

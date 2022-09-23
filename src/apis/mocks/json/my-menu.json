@@ -1,0 +1,73 @@
+{
+	"code": "0",
+	"data": [
+		{
+			"uniqueId": "dashboard",
+			"title": "Dashboard",
+			"routePath": "/dashboard",
+			"routeName": "dashboard",
+			"isComponent": true,
+			"parentUniqueId": "",
+			"children": [
+				{
+					"uniqueId": "dashboard_analysis",
+					"parentUniqueId": "dashboard",
+					"title": "分析页",
+					"isComponent": false,
+					"children": [
+						{
+							"uniqueId": "dashboard_analysis_1",
+							"title": "分析页1",
+							"routePath": "/dashboard/analysis/1",
+							"parentUniqueId": "dashboard_analysis",
+							"componentPath": "/dashboard/analysis/1",
+							"isComponent": true
+						},
+						{
+							"uniqueId": "dashboard_analysis_2",
+							"title": "分析页2",
+							"routePath": "/dashboard/analysis/2",
+							"parentUniqueId": "dashboard_analysis",
+							"componentPath": "/dashboard/analysis/2",
+							"isComponent": true
+						}
+					]
+				},
+				{
+					"uniqueId": "dashboard_workbench",
+					"title": "工作台",
+					"routePath": "/dashboard/workbench",
+					"parentUniqueId": "dashboard",
+					"componentPath": "/dashboard/workbench",
+					"isComponent": true
+				}
+			]
+		},
+		{
+			"uniqueId": "student",
+			"title": "学生",
+			"routePath": "/student",
+			"routeName": "student",
+			"parentUniqueId": "",
+			"isComponent": true,
+			"children": [
+				{
+					"uniqueId": "student_signup",
+					"title": "报名学生",
+					"routePath": "/student/signup",
+					"parentUniqueId": "student",
+					"isComponent": true,
+					"componentPath": "/student/signup"
+				},
+				{
+					"uniqueId": "student_experience",
+					"title": "体验学生",
+					"routePath": "/student/experience",
+					"parentUniqueId": "student",
+					"isComponent": true,
+					"componentPath": "/student/experience"
+				}
+			]
+		}
+	]
+}

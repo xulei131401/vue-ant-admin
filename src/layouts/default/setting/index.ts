@@ -1,2 +1,3 @@
-import SettingButton from './src/index.vue'
-export { SettingButton }
+import settingButton from './src/components/index.vue'
+export * from './src/composables'
+export const SettingButton = settingButton

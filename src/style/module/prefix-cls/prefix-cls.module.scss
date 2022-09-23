@@ -1,0 +1,26 @@
+@import '../../global/var.scss';
+@import '../../global/prefix-cls.scss';
+
+:export {
+	namespace: $namespace;
+	layout: $prefix-cls-layout;
+	layoutContent: $prefix-cls-layout-content;
+	layoutBasicHeader: $prefix-cls-layout-basic-header;
+	layoutHeaderRight: $prefix-cls-layout-header-right;
+	layoutHeaderLeft: $prefix-cls-layout-header-left;
+	layoutHeaderTopBottom: $prefix-cls-layout-header-top-bottom;
+	layoutHeaderLeftRight: $prefix-cls-layout-header-left-right;
+	layoutHeaderTrigger: $prefix-cls-layout-header-trigger;
+	headerUserDropdown: $prefix-cls-header-user-dropdown;
+	layoutSider: $prefix-cls-layout-sider;
+	layoutMenu: $prefix-cls-layout-menu;
+	appLogo: $prefix-cls-app-logo;
+	settingSwitchItem: $prefix-cls-setting-switch-item;
+	layoutModePick: $prefix-cls-layout-mode-pick;
+	themeColorPick: $prefix-cls-theme-color-pick;
+	appThemeSwitch: $prefix-cls-app-theme-switch;
+	modalClose: $prefix-cls-modal-close;
+	svgIcon: $prefix-cls-svg-icon;
+	basicTitle: $prefix-cls-basic-title;
+	basicDrawerHeader: $prefix-cls-basic-drawer-header;
+}

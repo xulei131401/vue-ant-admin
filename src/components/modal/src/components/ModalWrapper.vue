@@ -7,8 +7,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'ModalWrapper',
-	inheritAttrs: false
+	name: 'ModalWrapper'
 })
 </script>
 

@@ -1,8 +1,7 @@
 import enDayJsLocale from 'dayjs/locale/en'
 import zhCnDayJsLocale from 'dayjs/locale/zh-cn'
 import { LocaleEnum, LocaleType } from './typing'
-import { isEmpty } from '@/utils/is'
-import dayjs from '@/utils/dayjs'
+import { dayjs, isEmpty } from '@/utils'
 
 const DayJsLocales = {
 	[LocaleEnum.ZH_CN]: zhCnDayJsLocale,
