@@ -24,6 +24,7 @@ export function createVitePlugins(viteEnv: any) {
 	// 自动导入ant-design-vue组件
 	vitePlugins.push(
 		Components({
+			dirs: [], // 清空默认值
 			resolvers: [AntDesignVueResolver()]
 		})
 	)

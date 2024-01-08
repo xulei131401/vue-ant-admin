@@ -1,16 +1,16 @@
 <template>
-	<x-link v-bind="{ text: action.text, link: action.url }" @linkClick="onClick" />
+	<ALink v-bind="{ text: action.text, link: action.url }" @link-click="onClick" />
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'XActionClick',
-	inheritAttrs: false
+	name: 'ActionClick'
 })
 </script>
 
 <script setup lang="ts">
-import { actionClickProps } from '../props/actionClickProps'
-import { useActionClick } from '../hooks/useActionClick'
+import { ALink } from '@/components/link'
+import { actionClickProps } from '../typing'
+import { useActionClick } from '../composables'
 const props = defineProps(actionClickProps())
 const { onClick } = useActionClick(props)
 </script>

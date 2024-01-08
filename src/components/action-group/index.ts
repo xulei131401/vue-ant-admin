@@ -1,4 +1,5 @@
 import { withInstall } from '@/utils'
-import ActionGroup from './src/ActionGroup.vue'
-export * from './src/actionGroupProps'
-export default withInstall(ActionGroup)
+import actionGroup from './src/components/index.vue'
+export * from './src/typing'
+export * from './src/composables'
+export const ActionGroup = withInstall(actionGroup)

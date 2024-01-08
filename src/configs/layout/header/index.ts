@@ -1,4 +1,4 @@
-import { LIGHT_COLOR } from '@/constant'
+import { LIGHT_COLOR } from '@/constants'
 import { Theme } from '@/enums'
 
 export type HeaderConfig = {

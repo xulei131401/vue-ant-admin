@@ -1,0 +1,24 @@
+@import '../theme/variables.scss';
+
+/*
+  使用demo
+  .app-home {
+    font-size: 18px;
+    @include themeMixin {
+      color: themeVar('font-color');
+    }
+  }
+ */
+
+@mixin themeMixin {
+	@each $theme-name, $theme-map in $themes {
+		$global-theme-map: $theme-map !global;
+		html[app-theme='#{$theme-name}'] & {
+			@content;
+		}
+	}
+}
+
+@function themeVar($key) {
+	@return map-get($global-theme-map, $key);
+}

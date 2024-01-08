@@ -1,6 +1,6 @@
 import zhCnAntdLocale from 'ant-design-vue/es/locale/zh_CN'
 import enUSAntdLocale from 'ant-design-vue/es/locale/en_US'
-import { LocaleEnum, LocaleType } from './typing'
+import { LocaleEnum, LocaleType } from '../../../../vadmin/src/enum/locale/typing'
 import { isEmpty } from '@/utils'
 
 const AntdLocales = {

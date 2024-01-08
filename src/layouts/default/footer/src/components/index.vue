@@ -1,5 +1,6 @@
 <template>
 	<ALayoutFooter>
+		footer
 		<div class="x-footer-wrapper">
 			<a href="https://github.com/xulei131401" target="_blank">Github</a>
 		</div>

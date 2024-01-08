@@ -8,6 +8,6 @@ export function setupRouterGuard(router: Router) {
 	// 顺序不能随意修改，有先后依赖
 	createModeGuard(router)
 	createLoginGuard(router)
-	createApiGuard(router)
-	createPermissionGuard(router)
+	// createApiGuard(router)
+	// createPermissionGuard(router)
 }

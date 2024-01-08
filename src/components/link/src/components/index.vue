@@ -5,8 +5,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'XLink',
-	inheritAttrs: false
+	name: 'ALink'
 })
 </script>
 
@@ -18,7 +17,7 @@ type LinkProps = {
 
 const target = '_self'
 const emit = defineEmits(['linkClick'])
-const props = defineProps<LinkProps>()
+defineProps<LinkProps>()
 const url = computed(() => {
 	return 'javascript:;'
 })

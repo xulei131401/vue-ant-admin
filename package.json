@@ -2,6 +2,7 @@
 	"name": "vue-bingo-admin",
 	"private": true,
 	"version": "0.0.0",
+    "type": "module",
 	"author": {
 		"name": "zaizai",
 		"email": "373045134@qq.com",

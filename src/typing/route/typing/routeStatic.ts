@@ -68,12 +68,12 @@ export class RouteStatic {
 			const isTopLevel = !item.parentUniqueId
 			// 唯一标识必须有
 			// 如果是组件，组件路径必须有
-			if (!item.uniqueId || isTopLevel || (item.isComponent && !item.componentPath)) {
+			if (!item.uniqueId || isTopLevel || (item.isPage && !item.componentPath)) {
 				continue
 			}
 
 			// 不是组件则继续递归children
-			if (!item.isComponent) {
+			if (!item.isPage) {
 				const children = this.recursionNesting(item.children)
 				res.push(...children)
 				continue

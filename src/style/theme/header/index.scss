@@ -1,0 +1,11 @@
+@mixin headerBgColor() {
+	@include themeMixin {
+		background-color: themeVar('header-bg-color') !important;
+	}
+}
+
+@mixin headerBgHoverColor() {
+	@include themeMixin {
+		background-color: themeVar('header-bg-hover-color') !important;
+	}
+}

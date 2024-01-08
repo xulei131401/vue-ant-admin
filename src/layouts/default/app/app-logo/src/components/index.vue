@@ -63,18 +63,7 @@ const goHome = () => {
 		font-weight: 700;
 		transition: all 0.5s;
 		line-height: normal;
-	}
-
-	&--#{$light-theme} {
-		.#{$prefix-cls-app-logo}__title {
-			color: $primary-color;
-		}
-	}
-
-	&--#{$dark-theme} {
-		.#{$prefix-cls-app-logo}__title {
-			color: $white;
-		}
+		@include appLogoTitleColor();
 	}
 }
 </style>

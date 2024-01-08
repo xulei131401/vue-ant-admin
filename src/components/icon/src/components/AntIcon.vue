@@ -3,8 +3,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'AntIcon',
-	inheritAttrs: false
+	name: 'AntIcon'
 })
 </script>
 

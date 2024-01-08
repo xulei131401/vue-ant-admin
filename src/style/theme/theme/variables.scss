@@ -1,0 +1,30 @@
+$themes: (
+	$default-theme: (
+		theme: default,
+		header-theme: light,
+		menu-theme: dark,
+		sider-theme: dark,
+		app-logo-title-color: #001,
+		// header
+		header-bg-color: $white,
+		header-bg-hover-color: #f6f6f6
+	),
+	$dark-theme: (
+		theme: dark,
+		header-theme: dark,
+		menu-theme: dark,
+		sider-theme: dark,
+		app-logo-title-color: $white,
+		header-bg-color: #394664,
+		header-bg-hover-color: #273352
+	),
+	$light-theme: (
+		theme: light,
+		header-theme: light,
+		menu-theme: light,
+		sider-theme: light,
+		app-logo-title-color: $primary-color,
+		header-bg-color: #394664,
+		header-bg-hover-color: #273352
+	)
+);

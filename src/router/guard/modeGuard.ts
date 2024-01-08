@@ -4,14 +4,15 @@ import { useUserStore } from '@/store/user'
 
 export function createModeGuard(router: Router) {
 	const userStore = useUserStore()
-	router.beforeEach(async () => {
-		if (!isDevMode()) {
-			return true
-		}
+	router.beforeEach(async (to) => {
+		console.log(to)
+		// if (!isDevMode()) {
+		// 	return true
+		// }
 
-		if (!isLogin()) {
-			await userStore.login()
-		}
+		// if (!isLogin()) {
+		// 	// await userStore.login()
+		// }
 
 		return true
 	})

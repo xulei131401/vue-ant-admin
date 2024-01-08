@@ -1,0 +1,5 @@
+@mixin appLogoTitleColor() {
+	@include themeMixin {
+		color: themeVar('app-logo-title-color') !important;
+	}
+}

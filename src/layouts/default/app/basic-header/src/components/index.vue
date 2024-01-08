@@ -46,7 +46,7 @@ const getClass = computed(() => {
 	justify-content: space-between;
 	height: $header-height;
 	line-height: $header-height;
-	background-color: $white;
+	@include headerBgColor();
 
 	// fixed
 	&--fixed {
@@ -56,10 +56,5 @@ const getClass = computed(() => {
 		z-index: 7;
 		width: 100%;
 	}
-
-	// theme
-	// &--#{$header-theme} {
-	// 	background-color: $header-theme-bg-color !important;
-	// }
 }
 </style>

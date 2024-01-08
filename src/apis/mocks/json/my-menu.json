@@ -6,14 +6,16 @@
 			"title": "Dashboard",
 			"routePath": "/dashboard",
 			"routeName": "dashboard",
-			"isComponent": true,
+			"isPage": true,
 			"parentUniqueId": "",
+			"icon": "UserOutlined",
 			"children": [
 				{
 					"uniqueId": "dashboard_analysis",
 					"parentUniqueId": "dashboard",
 					"title": "分析页",
-					"isComponent": false,
+					"isPage": false,
+					"icon": "UserOutlined",
 					"children": [
 						{
 							"uniqueId": "dashboard_analysis_1",
@@ -21,7 +23,8 @@
 							"routePath": "/dashboard/analysis/1",
 							"parentUniqueId": "dashboard_analysis",
 							"componentPath": "/dashboard/analysis/1",
-							"isComponent": true
+							"isPage": true,
+							"icon": "UserOutlined"
 						},
 						{
 							"uniqueId": "dashboard_analysis_2",
@@ -29,7 +32,8 @@
 							"routePath": "/dashboard/analysis/2",
 							"parentUniqueId": "dashboard_analysis",
 							"componentPath": "/dashboard/analysis/2",
-							"isComponent": true
+							"isPage": true,
+							"icon": "UserOutlined"
 						}
 					]
 				},
@@ -39,7 +43,8 @@
 					"routePath": "/dashboard/workbench",
 					"parentUniqueId": "dashboard",
 					"componentPath": "/dashboard/workbench",
-					"isComponent": true
+					"isPage": true,
+					"icon": "UserOutlined"
 				}
 			]
 		},
@@ -49,23 +54,26 @@
 			"routePath": "/student",
 			"routeName": "student",
 			"parentUniqueId": "",
-			"isComponent": true,
+			"isPage": true,
+			"icon": "UserOutlined",
 			"children": [
 				{
 					"uniqueId": "student_signup",
 					"title": "报名学生",
 					"routePath": "/student/signup",
 					"parentUniqueId": "student",
-					"isComponent": true,
-					"componentPath": "/student/signup"
+					"isPage": true,
+					"componentPath": "/student/signup",
+					"icon": "UserOutlined"
 				},
 				{
 					"uniqueId": "student_experience",
 					"title": "体验学生",
 					"routePath": "/student/experience",
 					"parentUniqueId": "student",
-					"isComponent": true,
-					"componentPath": "/student/experience"
+					"isPage": true,
+					"componentPath": "/student/experience",
+					"icon": "UserOutlined"
 				}
 			]
 		}

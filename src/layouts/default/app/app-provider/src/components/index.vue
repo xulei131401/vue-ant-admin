@@ -3,7 +3,7 @@
 </template>
 <script lang="ts">
 export default defineComponent({
-	name: 'AppProvider'
+	name: 'm-app-provider'
 })
 </script>
 

@@ -4,6 +4,7 @@ import { LOGIN_ROUTE, ROOT_ROUTE } from '@/typing'
 
 export function createLoginGuard(router: Router) {
 	router.beforeEach(async (to) => {
+		console.log('asdasd', router.getRoutes(), to)
 		if (!isLogin()) {
 			if (to.path == LOGIN_ROUTE.path) {
 				return true
@@ -14,7 +15,8 @@ export function createLoginGuard(router: Router) {
 
 		// 登录以后还要进入登录页，重定向到首页
 		if (to.name === LOGIN_ROUTE.name) {
-			return { name: ROOT_ROUTE.name }
+			// return { name: ROOT_ROUTE.name }
+			return true
 		}
 
 		return true

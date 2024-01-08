@@ -1,5 +1,5 @@
-@import '../../global/var.scss';
-@import '../../global/prefix-cls.scss';
+@import '../../namespace.scss';
+@import './prefix-cls.scss';
 
 :export {
 	namespace: $namespace;

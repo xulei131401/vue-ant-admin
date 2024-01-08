@@ -52,7 +52,7 @@ const getClass = computed(() => {
 
 	.#{$prefix-cls-layout-header-right}__item {
 		&:hover {
-			background-color: $header-theme-bg-hover-color;
+			@include headerBgHoverColor();
 		}
 	}
 }

@@ -1,6 +1,6 @@
 import { getAntdLocales } from './antdLocale'
 import { getDayJsLocales } from './dayJsLocale'
-import { LocaleEnum, LocaleType } from './typing'
+import { LocaleEnum, LocaleType } from '../../../../vadmin/src/enum/locale/typing'
 import { isEmpty } from '@/utils'
 
 /**

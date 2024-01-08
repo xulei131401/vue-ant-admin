@@ -46,7 +46,7 @@ export default defineConfig((configEnv: ConfigEnv): UserConfig => {
 					javascriptEnabled: true
 				},
 				scss: {
-					additionalData: '@import "@/style/global/index.scss";'
+					additionalData: '@import "@/style/index.scss";'
 				}
 			}
 		},

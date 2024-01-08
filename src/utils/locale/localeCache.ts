@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
 import { i18n } from '@/plugins/vue-i18n-plugin'
-import { type LocaleType } from './typing'
+import { type LocaleType } from '../../../../vadmin/src/enum/locale/typing'
 import { loadLocaleMessages } from './message'
 import { changeDayJsLocale } from './dayJsLocale'
 import { defaultAppConfig } from '@/configs'

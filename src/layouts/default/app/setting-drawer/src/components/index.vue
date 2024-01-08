@@ -22,7 +22,7 @@ import { BasicDrawer } from '@/components/drawer'
 import { AppTheme, LayoutMode, ThemeColor, SwitchItem, useLayoutMode } from '@/layouts/default/app'
 import { SettingHandler } from '@/enums'
 import { useHeaderConfig } from '@/composables/config/useHeaderConfig'
-import { HEADER_THEME_COLOR } from '@/constant'
+import { HEADER_THEME_COLOR } from '@/constants'
 import { useAppConfig } from '@/composables/config/useAppConfig'
 
 const { t } = useI18n()

@@ -1,6 +1,6 @@
 import { useAppStore } from '@/store/app'
 import { RootCssProperties, Theme } from '@/enums'
-import { DARK_COLOR, LIGHT_COLOR } from '@/constant'
+import { DARK_COLOR, LIGHT_COLOR } from '@/constants'
 import { setCssVar } from '@/utils'
 
 export function useHeaderConfig() {

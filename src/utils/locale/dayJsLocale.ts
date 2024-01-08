@@ -1,6 +1,6 @@
 import enDayJsLocale from 'dayjs/locale/en'
 import zhCnDayJsLocale from 'dayjs/locale/zh-cn'
-import { LocaleEnum, LocaleType } from './typing'
+import { LocaleEnum, LocaleType } from '../../../../vadmin/src/enum/locale/typing'
 import { dayjs, isEmpty } from '@/utils'
 
 const DayJsLocales = {
